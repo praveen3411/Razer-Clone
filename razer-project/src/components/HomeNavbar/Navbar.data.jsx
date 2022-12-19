@@ -115,6 +115,7 @@ function ResponsiveAppBar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
                 style={{ hover: "3px solid black" }}
+                className={Navdata.hovereffect}
               >
                 {page}
               </Button>
@@ -152,6 +153,7 @@ function ResponsiveAppBar() {
           </Box>
         </Toolbar>
       </Container>
+      <div className={Navdata.bottomline}></div>
     </AppBar>
   );
 }

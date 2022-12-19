@@ -7,3 +7,11 @@ body {
 .moveLeft{
   padding-left: 20px !important;
 }
+.bottomline{
+  width: 100%;
+  height: 0.2px;
+  background-color: greenyellow;
+}
+.hovereffect:hover{
+  color: greenyellow;
+}
