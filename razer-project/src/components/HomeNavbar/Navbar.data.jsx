@@ -13,17 +13,48 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import Logo from "../../assets/HomeImages/Logo.svg";
+import { Link } from "react-router-dom";
 const pages = [
-  "Computers",
-  "Console",
-  "Mobile",
-  "Lifestyle",
-  "Services",
-  "Community",
-  "Support",
-  "Store",
-  "Search",
-  "Cart",
+  {
+    title: "Computers",
+    to: "/",
+  },
+  {
+    title: "Console",
+    to: "/console",
+  },
+  {
+    title: "Mobile",
+    to: "/mobile",
+  },
+  {
+    title: "LifeStyle",
+    to: "/lifestyle",
+  },
+  {
+    title: "Services",
+    to: "/services",
+  },
+  {
+    title: "Community",
+    to: "/community",
+  },
+  {
+    title: "Support",
+    to: "/support",
+  },
+  {
+    title: "Store",
+    to: "/store",
+  },
+  {
+    title: "Search",
+    to: "",
+  },
+  {
+    title: "Cart",
+    to: "/cart",
+  },
 ];
 const settings = [
   "Your Cart is empty",
@@ -87,8 +118,8 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.title} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -117,15 +148,19 @@ function ResponsiveAppBar() {
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
           >
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-                style={{ hover: "3px solid black" }}
-                className={Navdata.hovereffect}
-              >
-                {page}
-              </Button>
+              <Link to={page.to}>
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                  style={{ hover: "3px solid black" }}
+                  className={Navdata.hovereffect}
+                >
+                  <Typography className={Navdata.removeline}>
+                    {page.title}
+                  </Typography>
+                </Button>
+              </Link>
             ))}
           </Box>
 

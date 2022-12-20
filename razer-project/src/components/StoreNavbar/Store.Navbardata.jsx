@@ -1,5 +1,5 @@
 import * as React from "react";
-import Navdata from "./Support.module.css";
+import Navdata from "./Store.module.css";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -10,14 +10,18 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 const pages = [
-  "PC",
+  "Laptops",
+  "Components",
+  "Mice",
+  "Keyboards",
+  "Audio",
+  "Streaming",
+  "Chairs",
   "Console",
   "Mobile",
-  "Lifestyle",
-  "Services",
-  "Replacement Parts",
+  "Gear",
 ];
-function SupportNavbarData() {
+function StoreNavbardata() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -81,7 +85,7 @@ function SupportNavbarData() {
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 0, color: "white", display: "block" }}
-                style={{ marginLeft: "125px", fontSize: "13px" }}
+                style={{ marginLeft: "65px", fontSize: "13px" }}
                 className={Navdata.hovereffect}
               >
                 {page}
@@ -94,4 +98,4 @@ function SupportNavbarData() {
     </AppBar>
   );
 }
-export default SupportNavbarData;
+export default StoreNavbardata;
