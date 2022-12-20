@@ -25,7 +25,14 @@ const pages = [
   "Search",
   "Cart",
 ];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = [
+  "Your Cart is empty",
+  "Cart",
+  "Orders",
+  "Account",
+  "RazerStore Rewards",
+  "Login",
+];
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);

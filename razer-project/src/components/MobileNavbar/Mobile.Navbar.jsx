@@ -1,12 +1,12 @@
 import { Box } from "@mui/system";
 import ResponsiveAppBar from "../HomeNavbar/Navbar.data";
-import ConsoleNavbarData from "./Console.Data";
+import MobileNavbarData from "./Mobile.data";
 
-export default function ConsoleNavbar() {
+export default function MobileNavbar() {
   return (
     <Box>
       <ResponsiveAppBar />
-      <ConsoleNavbarData />
+      <MobileNavbarData />
     </Box>
   );
 }

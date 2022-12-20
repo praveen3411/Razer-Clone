@@ -1,0 +1,18 @@
+body {
+    background-color: #000;
+  }
+  .background_data {
+    background-color: #1a1a1a !important;
+  }
+  .bottomline{
+    width: 100%;
+    height: 0.1px;
+    background-color: greenyellow;
+    color: rgb(229, 227, 227);
+  }
+  .hovereffect{
+    font-size: 13px;
+  }
+  .hovereffect:hover{
+    color: greenyellow;
+  }

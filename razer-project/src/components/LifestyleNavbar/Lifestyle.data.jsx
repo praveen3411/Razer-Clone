@@ -1,5 +1,5 @@
 import * as React from "react";
-import Navdata from "./PC.Navbar.module.css";
+import Navdata from "./Lifestyle.module.css";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -10,22 +10,20 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 const pages = [
-  "Laptops",
-  "Desktops & Components",
-  "Monitors",
-  "Mice",
-  "Mats",
-  "keyboards",
-  "Headset",
-  "Speakers",
-  "Streaming",
-  "Productivity",
   "Chairs",
-  "Software",
+  "Wereables",
+  "Apparel",
+  "Bags",
+  "Gear",
+  "Sneki Snek",
+  "Respawn",
+  "Customs",
+  "Collabs",
+  "Book",
+  "Mac",
 ];
-function Pcnavbardata() {
+function Lifestyledatanavbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -36,7 +34,7 @@ function Pcnavbardata() {
 
   return (
     <AppBar position="static" className={Navdata.background_data}>
-      <Container maxWidth="xl" style={{height:"55px"}}>
+      <Container maxWidth="xl" style={{ height: "55px" }}>
         <Toolbar disableGutters maxWidth="lg">
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -88,7 +86,7 @@ function Pcnavbardata() {
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 0, color: "white", display: "block" }}
-                style={{marginLeft:"42px",fontSize:"13px"}}
+                style={{ marginLeft: "62px", fontSize: "13px" }}
                 className={Navdata.hovereffect}
               >
                 {page}
@@ -101,4 +99,4 @@ function Pcnavbardata() {
     </AppBar>
   );
 }
-export default Pcnavbardata;
+export default Lifestyledatanavbar;

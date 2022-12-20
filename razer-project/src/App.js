@@ -1,14 +1,11 @@
 import { Box } from "@mui/system";
 import "./App.css";
-import ResponsiveAppBar from "./components/HomeNavbar/Navbar.data";
-import PCNAVBAR from "./components/PcNavbar/PC.Navbar";
-
+import SupportNavbar from "./components/SupportNavbar/Support.Navbar";
 
 function App() {
   return (
     <Box>
-      {/* <ResponsiveAppBar/> */}
-      <PCNAVBAR/>
+      <SupportNavbar />
     </Box>
   );
 }

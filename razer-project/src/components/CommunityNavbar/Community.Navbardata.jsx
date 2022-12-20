@@ -1,5 +1,5 @@
 import * as React from "react";
-import Navdata from "./PC.Navbar.module.css";
+import Navdata from "./Community.module.css";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -10,20 +10,17 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 const pages = [
-  "Laptops",
-  "Desktops & Components",
-  "Monitors",
-  "Mice",
-  "Mats",
-  "keyboards",
-  "Headset",
-  "Speakers",
-  "Streaming",
-  "Productivity",
-  "Chairs",
-  "Software",
+  "Get Started",
+  "Esports",
+  "Events",
+  "insider",
+  "Student",
+  "Wallpapers",
+  "Stickers",
+  "Developers",
+  "Sustainablity",
 ];
-function Pcnavbardata() {
+function CommunityNavbarData() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -36,7 +33,7 @@ function Pcnavbardata() {
 
   return (
     <AppBar position="static" className={Navdata.background_data}>
-      <Container maxWidth="xl" style={{height:"55px"}}>
+      <Container maxWidth="xl" style={{ height: "55px" }}>
         <Toolbar disableGutters maxWidth="lg">
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -88,7 +85,7 @@ function Pcnavbardata() {
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 0, color: "white", display: "block" }}
-                style={{marginLeft:"42px",fontSize:"13px"}}
+                style={{ marginLeft: "75px", fontSize: "13px" }}
                 className={Navdata.hovereffect}
               >
                 {page}
@@ -101,4 +98,4 @@ function Pcnavbardata() {
     </AppBar>
   );
 }
-export default Pcnavbardata;
+export default CommunityNavbarData;
