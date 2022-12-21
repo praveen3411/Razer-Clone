@@ -9,84 +9,74 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import { ImageList } from "@mui/material";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const pages = [
   {
-    to: "/personal",
-    title: "PC",
+    to: "/laptops",
+    title: "Laptops",
   },
   {
-    to: "/console",
-    title: "Console",
+    to: "/desktops",
+    title: "Desktops & Components",
   },
   {
-    to: "/mobile",
-    title: "Mobile",
+    to: "/monitors",
+    title: "Monitors",
   },
   {
-    to: "/lifestyle",
-    title: "Lifestyle",
+    to: "/mice",
+    title: "Mice",
   },
   {
-    to: "/services",
-    title: "Services",
+    to: "/mats",
+    title: "Mats",
   },
   {
-    to: "/community",
-    title: "Community",
+    to: "/keyboard",
+    title: "Keyboars",
   },
   {
-    to: "/support",
-    title: "Support",
+    to: "/headset",
+    title: "Headsets",
   },
   {
-    to: "Store",
-    title: "Store",
+    to: "/speaker",
+    title: "Speakers",
   },
   {
-    to: "/searchbar",
-    title: "Search",
+    to: "/streaming",
+    title: "Streaming",
   },
   {
-    to: "/cartpage",
-    title: "Cart",
+    to: "/productivity",
+    title: "Productivity",
+  },
+  {
+    to: "/chairs",
+    title: "Chairs",
+  },
+  {
+    to: "/software",
+    title: "Software",
   },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-function MainNavbarResponsive() {
+function PcNavbarData() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
   };
   return (
     <AppBar position="static" style={{ backgroundColor: "black" }}>
       <Container maxWidth="xl" style={{ height: "62px" }}>
         <Toolbar disableGutters>
-          <ImageList sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}>
-            <Link to={"/"}>
-              <img width={"35px"} height={"35px"} src={Logos} alt="Logo" />
-            </Link>
-          </ImageList>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -144,51 +134,22 @@ function MainNavbarResponsive() {
           <Box
             sx={{
               flexGrow: 1,
-              marginLeft: "150px",
+              marginLeft: "30px",
               display: { xs: "none", md: "flex" },
             }}
           >
             {pages.map((page) => (
               <NavLink style={{ textDecoration: "none" }} to={page.to}>
-                <Button
+                <Typography
                   key={page.title}
                   onClick={handleCloseNavMenu}
+                  style={{ margin: "20px", fontSize: "13px" }}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   {page.title}
-                </Button>
+                </Typography>
               </NavLink>
             ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
         </Toolbar>
       </Container>
@@ -202,4 +163,4 @@ function MainNavbarResponsive() {
     </AppBar>
   );
 }
-export default MainNavbarResponsive;
+export default PcNavbarData;

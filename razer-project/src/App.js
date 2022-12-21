@@ -1,11 +1,11 @@
 import { Box } from "@mui/system";
 import "./App.css";
-import MainNavbarResponsive from "./components/MainNavbar/MainNavbar";
+import MainNavRoutes from "./routes/MainNavRoutes";
 
 function App() {
   return (
     <Box>
-      <MainNavbarResponsive />
+      <MainNavRoutes />
     </Box>
   );
 }
