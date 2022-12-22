@@ -14,59 +14,57 @@ import { NavLink } from "react-router-dom";
 
 const pages = [
   {
-    to: "/laptops",
+    to: "/personal/laptops",
     title: "Laptops",
   },
   {
-    to: "/desktops",
+    to: "/personal/desktops",
     title: "Desktops & Components",
   },
   {
-    to: "/monitors",
+    to: "/personal/monitors",
     title: "Monitors",
   },
   {
-    to: "/mice",
+    to: "/personal/mice",
     title: "Mice",
   },
   {
-    to: "/mats",
+    to: "/personal/mats",
     title: "Mats",
   },
   {
-    to: "/keyboard",
+    to: "/personal/keyboard",
     title: "Keyboars",
   },
   {
-    to: "/headset",
+    to: "/personal/headset",
     title: "Headsets",
   },
   {
-    to: "/speaker",
+    to: "/personal/speaker",
     title: "Speakers",
   },
   {
-    to: "/streaming",
+    to: "/personal/streaming",
     title: "Streaming",
   },
   {
-    to: "/productivity",
+    to: "/personal/productivity",
     title: "Productivity",
   },
   {
-    to: "/chairs",
+    to: "/personal/chairs",
     title: "Chairs",
   },
   {
-    to: "/software",
+    to: "/personal/software",
     title: "Software",
   },
 ];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function PcNavbarData() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -127,6 +125,7 @@ function PcNavbarData() {
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
+              marginLeft: "-30px",
             }}
           >
             <img width={"35px"} height={"35px"} src={Logos} alt="Logo" />
@@ -139,7 +138,7 @@ function PcNavbarData() {
             }}
           >
             {pages.map((page) => (
-              <NavLink style={{ textDecoration: "none" }} to={page.to}>
+              <NavLink key={page.title} style={{ textDecoration: "none" }} to={page.to}>
                 <Typography
                   key={page.title}
                   onClick={handleCloseNavMenu}

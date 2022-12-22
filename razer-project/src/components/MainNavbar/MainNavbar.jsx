@@ -149,7 +149,11 @@ function MainNavbarResponsive() {
             }}
           >
             {pages.map((page) => (
-              <NavLink style={{ textDecoration: "none" }} to={page.to}>
+              <NavLink
+                key={page.title}
+                style={{ textDecoration: "none" }}
+                to={page.to}
+              >
                 <Button
                   key={page.title}
                   onClick={handleCloseNavMenu}
