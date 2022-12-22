@@ -4,6 +4,9 @@ import MainNavbarResponsive from "../components/MainNavbar/MainNavbar";
 import CartPage from "../pages/CartPage/CARTPAGE";
 import CommunityPage from "../pages/CommunityPage/COMMUNITY";
 import ConsolePage from "../pages/ConsolePage/CONSOLE";
+import ConsoleAccessories from "../pages/ConsolePage/Console.Accessories";
+import ConsolePlayStation from "../pages/ConsolePage/Console.playstation";
+import ConsoleXbox from "../pages/ConsolePage/Console.Xbox";
 import HomePage from "../pages/HomePage/HOME";
 import LifeStylePage from "../pages/LifeStylePage/LIFESTYLE";
 import MobilePage from "../pages/MobilePage/MOBILE.jsx";
@@ -46,6 +49,9 @@ export default function MainNavRoutes() {
         <Route path="/personal/chairs" element={<PcChairs />} />
         <Route path="/personal/software" element={<PcSoftware />} />
         <Route path="/console" element={<ConsolePage />} />
+        <Route path="/console/xbox" element={<ConsoleXbox />} />
+        <Route path="/console/palystation" element={<ConsolePlayStation />} />
+        <Route path="/console/accessories" element={<ConsoleAccessories />} />
         <Route path="/mobile" element={<MobilePage />} />
         <Route path="/lifestyle" element={<LifeStylePage />} />
         <Route path="/services" element={<ServicesPage />} />
