@@ -4,7 +4,7 @@ export default function ConsolePage() {
   return (
     <Box>
       <ConsoleNavbarData />
-      <h1 style={{ color: "white" }}>ConsolePages</h1>
+      <h1 style={{ color: "white" }}>ConsolePaes</h1>
     </Box>
   );
 }
