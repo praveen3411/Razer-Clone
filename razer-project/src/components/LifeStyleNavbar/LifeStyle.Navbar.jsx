@@ -14,48 +14,52 @@ import { NavLink } from "react-router-dom";
 
 const pages = [
   {
-    to: "/mobile/handhelds",
-    title: "Handhelds",
+    to: "/lifestyle/chairs",
+    title: "Chairs",
   },
   {
-    to: "/mobile/controllers",
-    title: "Controllers",
+    to: "/lifestyle/wearables",
+    title: "Wearables",
   },
   {
-    to: "/mobile/headphones",
-    title: "Headphones",
+    to: "/lifestyle/apparel",
+    title: "Apparel",
   },
   {
-    to: "/mobile/earbuds",
-    title: "Earbuds",
+    to: "/lifestyle/bags",
+    title: "Bags",
   },
   {
-    to: "/mobile/dac",
-    title: "DAC",
+    to: "/lifestyle/gear",
+    title: "Gear",
   },
   {
-    to: "/mobile/smartglasses",
-    title: "Smart Glasses",
+    to: "/lifestyle/snekisnek",
+    title: "Sneki Snek",
   },
   {
-    to: "/mobile/cases",
-    title: "Cases",
+    to: "/lifestyle/respawn",
+    title: "Respawn",
   },
   {
-    to: "/mobile/maccessories",
-    title: "Accessories",
-  },
-  {
-    to: "/mobile/customs",
+    to: "/lifestyle/customs",
     title: "Customs",
   },
   {
-    to: "/mobile/cortexgames",
-    title: "Cortex Games",
+    to: "/lifestyle/collabs",
+    title: "Collabs",
+  },
+  {
+    to: "/lifestyle/book",
+    title: "Book",
+  },
+  {
+    to: "/lifestyle/mac",
+    title: "Mac",
   },
 ];
 
-function MobileNavbarData() {
+function LifestyleNavbarData() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -125,7 +129,7 @@ function MobileNavbarData() {
           <Box
             sx={{
               flexGrow: 1,
-              marginLeft: "230px",
+              marginLeft: "265px",
               display: { xs: "none", md: "flex" },
             }}
           >
@@ -158,4 +162,4 @@ function MobileNavbarData() {
     </AppBar>
   );
 }
-export default MobileNavbarData;
+export default LifestyleNavbarData;

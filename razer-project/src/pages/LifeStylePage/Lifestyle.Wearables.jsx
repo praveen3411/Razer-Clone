@@ -1,10 +1,11 @@
-import Box from "@mui/material/Box";
+import { Box } from "@mui/system";
 import LifestyleNavbarData from "../../components/LifeStyleNavbar/LifeStyle.Navbar";
-export default function LifeStylePage() {
+
+export default function LifestyleWearables() {
   return (
     <Box>
       <LifestyleNavbarData />
-      <h1 style={{ color: "white" }}>LifeStyle</h1>
+      <h2 style={{ color: "white" }}>LifeStyle Wearables</h2>
     </Box>
   );
 }

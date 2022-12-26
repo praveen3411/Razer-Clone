@@ -9,6 +9,17 @@ import ConsolePlayStation from "../pages/ConsolePage/Console.playstation";
 import ConsoleXbox from "../pages/ConsolePage/Console.Xbox";
 import HomePage from "../pages/HomePage/HOME";
 import LifeStylePage from "../pages/LifeStylePage/LIFESTYLE";
+import LifestyleApparel from "../pages/LifeStylePage/Lifestyle.Apparel";
+import LifestyleBags from "../pages/LifeStylePage/Lifestyle.Bags";
+import LifestyleBooks from "../pages/LifeStylePage/Lifestyle.Books";
+import LifestyleChairs from "../pages/LifeStylePage/Lifestyle.Chairs";
+import LifestyleCollabs from "../pages/LifeStylePage/Lifestyle.Collabs";
+import LifestyleCustoms from "../pages/LifeStylePage/Lifestyle.Customs";
+import LifestyleGear from "../pages/LifeStylePage/Lifestyle.Gear";
+import LifestyleMacs from "../pages/LifeStylePage/Lifestyle.Macs";
+import LifestylesRespawn from "../pages/LifeStylePage/Lifestyle.Respawn";
+import LifestyleSnekiSnek from "../pages/LifeStylePage/Lifestyle.Snekisnek";
+import LifestyleWearables from "../pages/LifeStylePage/Lifestyle.Wearables";
 import MobileAccessories from "../pages/MobilePage/Mobile.Accessories";
 import MobileCases from "../pages/MobilePage/Mobile.Cases";
 import MobileControllers from "../pages/MobilePage/Mobile.Controllers";
@@ -74,6 +85,17 @@ export default function MainNavRoutes() {
         <Route path="/mobile/customs" element={<MobileCustoms />} />
         <Route path="/mobile/cortexgames" element={<MobileCustomCortex />} />
         <Route path="/lifestyle" element={<LifeStylePage />} />
+        <Route path="/lifestyle/chairs" element={<LifestyleChairs />} />
+        <Route path="/lifestyle/wearables" element={<LifestyleWearables />} />
+        <Route path="/lifestyle/apparel" element={<LifestyleApparel />} />
+        <Route path="/lifestyle/bags" element={<LifestyleBags />} />
+        <Route path="/lifestyle/gear" element={<LifestyleGear />} />
+        <Route path="/lifestyle/snekisnek" element={<LifestyleSnekiSnek />} />
+        <Route path="/lifestyle/respawn" element={<LifestylesRespawn />} />
+        <Route path="/lifestyle/customs" element={<LifestyleCustoms />} />
+        <Route path="/lifestyle/collabs" element={<LifestyleCollabs />} />
+        <Route path="/lifestyle/book" element={<LifestyleBooks />} />
+        <Route path="/lifestyle/mac" element={<LifestyleMacs />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/support" element={<SupportPage />} />

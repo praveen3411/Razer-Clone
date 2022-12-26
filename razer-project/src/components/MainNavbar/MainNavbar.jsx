@@ -144,7 +144,7 @@ function MainNavbarResponsive() {
           <Box
             sx={{
               flexGrow: 1,
-              marginLeft: "150px",
+              marginLeft: "270px",
               display: { xs: "none", md: "flex" },
             }}
           >

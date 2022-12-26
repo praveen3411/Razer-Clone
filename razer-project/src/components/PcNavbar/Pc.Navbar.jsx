@@ -133,7 +133,7 @@ function PcNavbarData() {
           <Box
             sx={{
               flexGrow: 1,
-              marginLeft: "30px",
+              marginLeft: "160px",
               display: { xs: "none", md: "flex" },
             }}
           >

@@ -97,7 +97,7 @@ function ConsoleNavbarData() {
           <Box
             sx={{
               flexGrow: 1,
-              marginLeft: "450px",
+              marginLeft: "600px",
               display: { xs: "none", md: "flex" },
             }}
           >
