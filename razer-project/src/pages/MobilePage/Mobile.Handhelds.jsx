@@ -1,10 +1,11 @@
-import Box from "@mui/material/Box";
+import { Box } from "@mui/system";
 import MobileNavbarData from "../../components/MobileNavbar/Mobile.Navbar";
-export default function MobilePage() {
+
+export default function MobileHandHelds() {
   return (
     <Box>
       <MobileNavbarData />
-      <h2 style={{ color: "white" }}>MobilePage</h2>
+      <h2 style={{ color: "white" }}>MobileHandHelds</h2>
     </Box>
   );
 }

@@ -125,7 +125,7 @@ function MobileNavbarData() {
           <Box
             sx={{
               flexGrow: 1,
-              marginLeft: "450px",
+              marginLeft: "100px",
               display: { xs: "none", md: "flex" },
             }}
           >

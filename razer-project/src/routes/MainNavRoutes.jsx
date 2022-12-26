@@ -9,7 +9,17 @@ import ConsolePlayStation from "../pages/ConsolePage/Console.playstation";
 import ConsoleXbox from "../pages/ConsolePage/Console.Xbox";
 import HomePage from "../pages/HomePage/HOME";
 import LifeStylePage from "../pages/LifeStylePage/LIFESTYLE";
+import MobileAccessories from "../pages/MobilePage/Mobile.Accessories";
+import MobileCases from "../pages/MobilePage/Mobile.Cases";
+import MobileControllers from "../pages/MobilePage/Mobile.Controllers";
+import MobileCustoms from "../pages/MobilePage/Mobile.Custom";
+import MobileCustomCortex from "../pages/MobilePage/Mobile.Customcortex";
+import MobileDac from "../pages/MobilePage/Mobile.Dac";
+import MobileEarbuds from "../pages/MobilePage/Mobile.Earbuds";
+import MobileHandHelds from "../pages/MobilePage/Mobile.Handhelds";
+import MobileHadphones from "../pages/MobilePage/Mobile.Headphones";
 import MobilePage from "../pages/MobilePage/MOBILE.jsx";
+import MobileSmartGlasses from "../pages/MobilePage/Mobile.Smartgalsses";
 import PersonalPage from "../pages/PersonalComputerPage/PC";
 import PcChairs from "../pages/PersonalComputerPage/Pc.Chairs";
 import PcHeadset from "../pages/PersonalComputerPage/Pc.Headset";
@@ -53,6 +63,16 @@ export default function MainNavRoutes() {
         <Route path="/console/palystation" element={<ConsolePlayStation />} />
         <Route path="/console/accessories" element={<ConsoleAccessories />} />
         <Route path="/mobile" element={<MobilePage />} />
+        <Route path="/mobile/handhelds" element={<MobileHandHelds />} />
+        <Route path="/mobile/controllers" element={<MobileControllers />} />
+        <Route path="/mobile/headphones" element={<MobileHadphones />} />
+        <Route path="/mobile/earbuds" element={<MobileEarbuds />} />
+        <Route path="/mobile/dac" element={<MobileDac />} />
+        <Route path="/mobile/smartglasses" element={<MobileSmartGlasses />} />
+        <Route path="/mobile/cases" element={<MobileCases />} />
+        <Route path="/mobile/maccessories" element={<MobileAccessories />} />
+        <Route path="/mobile/customs" element={<MobileCustoms />} />
+        <Route path="/mobile/cortexgames" element={<MobileCustomCortex />} />
         <Route path="/lifestyle" element={<LifeStylePage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/community" element={<CommunityPage />} />
