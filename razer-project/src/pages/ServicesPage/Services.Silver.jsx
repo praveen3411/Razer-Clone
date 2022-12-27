@@ -1,10 +1,11 @@
-import Box from "@mui/material/Box";
+import { Box } from "@mui/system";
 import ServiceNavbarData from "../../components/ServiceNavbar/Service.Navbar";
-export default function ServicesPage() {
+
+export default function ServicesSilver() {
   return (
     <Box>
       <ServiceNavbarData />
-      <h1 style={{ color: "white" }}>Services</h1>
+      <h2 style={{ color: "white" }}>Services Silver</h2>
     </Box>
   );
 }

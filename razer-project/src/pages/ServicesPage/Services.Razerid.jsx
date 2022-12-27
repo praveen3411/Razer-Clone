@@ -1,10 +1,11 @@
-import Box from "@mui/material/Box";
+import { Box } from "@mui/system";
 import ServiceNavbarData from "../../components/ServiceNavbar/Service.Navbar";
-export default function ServicesPage() {
+
+export default function ServicesRazerId() {
   return (
     <Box>
       <ServiceNavbarData />
-      <h1 style={{ color: "white" }}>Services</h1>
+      <h2 style={{ color: "white" }}>Services Razer Id</h2>
     </Box>
   );
 }

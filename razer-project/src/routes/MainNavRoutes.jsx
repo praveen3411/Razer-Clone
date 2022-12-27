@@ -46,6 +46,13 @@ import PcDesktop from "../pages/PersonalComputerPage/PcDesktop";
 import PcLaptop from "../pages/PersonalComputerPage/PcLaptopPage";
 import SearchPage from "../pages/SearchPage/SEARCH";
 import ServicesPage from "../pages/ServicesPage/SERVICES";
+import ServicesGiftCard from "../pages/ServicesPage/Services.Giftcards";
+import ServicesGold from "../pages/ServicesPage/Services.Gold";
+import ServicesGoldPins from "../pages/ServicesPage/Services.GoldPins";
+import ServiceGoldWebShop from "../pages/ServicesPage/Services.Goldwebshop";
+import ServicesRaxerCare from "../pages/ServicesPage/Services.Razercare";
+import ServicesRazerId from "../pages/ServicesPage/Services.Razerid";
+import ServicesSilver from "../pages/ServicesPage/Services.Silver";
 import StorePage from "../pages/StorePage/SOTREPAGE";
 import SupportPage from "../pages/SupportPage/SUPPORT";
 
@@ -97,6 +104,13 @@ export default function MainNavRoutes() {
         <Route path="/lifestyle/book" element={<LifestyleBooks />} />
         <Route path="/lifestyle/mac" element={<LifestyleMacs />} />
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/services/gold" element={<ServicesGold />} />
+        <Route path="/services/silver" element={<ServicesSilver />} />
+        <Route path="/services/goldpins" element={<ServicesGoldPins />} />
+        <Route path="/services/goldwebshop" element={<ServiceGoldWebShop />} />
+        <Route path="/services/giftcards" element={<ServicesGiftCard />} />
+        <Route path="/services/razercare" element={<ServicesRaxerCare />} />
+        <Route path="/services/razerid" element={<ServicesRazerId />} />
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/support" element={<SupportPage />} />
         <Route path="/storepage" element={<StorePage />} />
