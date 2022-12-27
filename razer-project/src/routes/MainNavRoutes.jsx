@@ -3,6 +3,15 @@ import { Route, Routes } from "react-router-dom";
 import MainNavbarResponsive from "../components/MainNavbar/MainNavbar";
 import CartPage from "../pages/CartPage/CARTPAGE";
 import CommunityPage from "../pages/CommunityPage/COMMUNITY";
+import CommunityDevelopers from "../pages/CommunityPage/Community.Developers";
+import CommunityEsports from "../pages/CommunityPage/Community.Esports";
+import CommunityEvents from "../pages/CommunityPage/Community.Events";
+import CommunityGetStarted from "../pages/CommunityPage/Community.GetStarted";
+import CommunityRazerStream from "../pages/CommunityPage/Community.RazerStream";
+import CommunityStickers from "../pages/CommunityPage/Community.Stickers";
+import CommunitySustainability from "../pages/CommunityPage/Community.Sustainability";
+import CommunityWallpapers from "../pages/CommunityPage/Community.Wallpapers";
+import CommunityInsider from "../pages/CommunityPage/Communty.Insider";
 import ConsolePage from "../pages/ConsolePage/CONSOLE";
 import ConsoleAccessories from "../pages/ConsolePage/Console.Accessories";
 import ConsolePlayStation from "../pages/ConsolePage/Console.playstation";
@@ -112,6 +121,22 @@ export default function MainNavRoutes() {
         <Route path="/services/razercare" element={<ServicesRaxerCare />} />
         <Route path="/services/razerid" element={<ServicesRazerId />} />
         <Route path="/community" element={<CommunityPage />} />
+        <Route path="/community/getstarted" element={<CommunityGetStarted />} />
+        <Route path="/community/esports" element={<CommunityEsports />} />
+        <Route
+          path="/community/razerstreamer"
+          element={<CommunityRazerStream />}
+        />
+        <Route path="/community/events" element={<CommunityEvents />} />
+        <Route path="/community/insider" element={<CommunityInsider />} />
+        <Route path="/community/student" element={<CommunityInsider />} />
+        <Route path="/community/wallpapers" element={<CommunityWallpapers />} />
+        <Route path="/community/stickers" element={<CommunityStickers />} />
+        <Route path="/community/developers" element={<CommunityDevelopers />} />
+        <Route
+          path="/community/sustainability"
+          element={<CommunitySustainability />}
+        />
         <Route path="/support" element={<SupportPage />} />
         <Route path="/storepage" element={<StorePage />} />
         <Route path="/searchbar" element={<SearchPage />} />

@@ -1,11 +1,11 @@
-import Box from "@mui/material/Box";
+import { Box } from "@mui/system";
 import CommunityNavbarData from "../../components/CommunityNavbar/Community.Navbar";
 
-export default function CommunityPage() {
+export default function CommunityWallpapers() {
   return (
     <Box>
       <CommunityNavbarData />
-      <h1 style={{ color: "white" }}>Community</h1>
+      <h2 style={{ color: "white" }}>Community Wallpapers</h2>
     </Box>
   );
 }
