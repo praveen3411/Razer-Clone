@@ -64,6 +64,12 @@ import ServicesRazerId from "../pages/ServicesPage/Services.Razerid";
 import ServicesSilver from "../pages/ServicesPage/Services.Silver";
 import StorePage from "../pages/StorePage/SOTREPAGE";
 import SupportPage from "../pages/SupportPage/SUPPORT";
+import SupportConsole from "../pages/SupportPage/Support.Console";
+import SupportLifeStyle from "../pages/SupportPage/Support.Lifestyle";
+import SupportMobile from "../pages/SupportPage/Support.Mobile";
+import SupportPc from "../pages/SupportPage/Support.Pc";
+import SupportReplacements from "../pages/SupportPage/Support.Replacements";
+import SupportServices from "../pages/SupportPage/Support.Services";
 
 export default function MainNavRoutes() {
   return (
@@ -138,6 +144,12 @@ export default function MainNavRoutes() {
           element={<CommunitySustainability />}
         />
         <Route path="/support" element={<SupportPage />} />
+        <Route path="/support/pc" element={<SupportPc />} />
+        <Route path="/support/console" element={<SupportConsole />} />
+        <Route path="/support/mobile" element={<SupportMobile />} />
+        <Route path="/support/lifestyle" element={<SupportLifeStyle />} />
+        <Route path="/support/services" element={<SupportServices />} />
+        <Route path="/support/replacements" element={<SupportReplacements />} />
         <Route path="/storepage" element={<StorePage />} />
         <Route path="/searchbar" element={<SearchPage />} />
         <Route path="/cartpage" element={<CartPage />} />
