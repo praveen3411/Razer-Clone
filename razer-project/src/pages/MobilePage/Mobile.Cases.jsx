@@ -5,7 +5,7 @@ export default function MobileCases() {
   return (
     <Box>
       <MobileNavbarData />
-      <h2 style={{ color: "white" }}>MobileCases</h2>
+      <h2 style={{ color: "white" }}>MobileCass</h2>
     </Box>
   );
 }
