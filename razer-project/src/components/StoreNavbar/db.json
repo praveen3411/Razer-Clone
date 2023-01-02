@@ -1,0 +1,3566 @@
+{
+  "enterpriseId": "{{enterpriseId}}",
+  "formKey": "NIVEA_INVITING_DISTRIBUTOR_DETAILS",
+  "config": [
+    {
+      "component": "radio",
+      "name": "nivea_distributor_status",
+      "key": "nivea_distributor_status",
+      "label": "Distributor Status ?",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "existing",
+          "label": "Existing"
+        },
+        {
+          "value": "new",
+          "label": "New"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_distributor_code",
+      "key": "nivea_distributor_code",
+      "placeholder": "Enter E-Mail",
+      "scope": "application",
+      "label": "Distributor Code",
+      "type": "string",
+      "condition": {
+        "when": "nivea_distributor_status",
+        "is": "existing"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_distributor_as_replacement",
+      "key": "nivea_distributor_as_replacement",
+      "label": "Distributor as replacement",
+      "scope": "application",
+      "hideField": false,
+      "condition": {
+        "when": "nivea_distributor_status",
+        "is": "new"
+      },
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_resignation_noc",
+      "key": "nivea_resignation_noc",
+      "scope": "application",
+      "label": "Resignation/NOC of previous proprietorship/partnership/company",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_distributor_as_replacement",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Resignation/NOC of previous proprietorship/partnership/company"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_distributor_code_repeat",
+      "key": "nivea_distributor_code_repeat",
+      "placeholder": "Enter distributor code",
+      "scope": "application",
+      "label": "Distributor Code",
+      "type": "string",
+      "condition": {
+        "when": "nivea_distributor_as_replacement",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_old_distributor_name",
+      "key": "nivea_old_distributor_name",
+      "placeholder": "Enter name of old distributor",
+      "scope": "application",
+      "label": "Enter Name of the old distributor",
+      "type": "string",
+      "condition": {
+        "when": "nivea_distributor_as_replacement",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_amount_recovery_or_payment",
+      "key": "nivea_amount_recovery_or_payment",
+      "label": "Select option for amount recovery/payment",
+      "scope": "application",
+      "hideField": false,
+      "condition": {
+        "when": "nivea_distributor_as_replacement",
+        "is": "yes"
+      },
+      "options": [
+        {
+          "value": "amountnotapplicable",
+          "label": "Amount Not Applicable"
+        },
+        {
+          "value": "receivable",
+          "label": "Receivable"
+        },
+        {
+          "value": "payable",
+          "label": "Payable"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_outstanding_amount_receivable",
+      "key": "nivea_outstanding_amount_receivable",
+      "placeholder": "Enter outstanding amount to be collected/paid",
+      "scope": "application",
+      "label": "Enter outstanding amount to be collected/paid",
+      "type": "string",
+      "condition": {
+        "when": "nivea_amount_recovery_or_payment",
+        "is": "receivable"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "date-picker",
+      "name": "nivea_recovery_amount_receivable",
+      "key": "nivea_recovery_amount_receivable",
+      "placeholder": "Recovery date for collecting outstanding amount",
+      "scope": "application",
+      "label": "Recovery date for collecting outstanding amount",
+      "type": "string",
+      "condition": {
+        "when": "nivea_amount_recovery_or_payment",
+        "is": "receivable"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_outstanding_amount_payable",
+      "key": "nivea_outstanding_amount_payable",
+      "placeholder": "Enter outstanding amount to be collected/paid",
+      "scope": "application",
+      "label": "Enter outstanding amount to be collected/paid",
+      "type": "string",
+      "condition": {
+        "when": "nivea_amount_recovery_or_payment",
+        "is": "payable"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_new_distributor_gstin",
+      "key": "nivea_new_distributor_gstin",
+      "placeholder": "Enter distributor GSTIN",
+      "scope": "application",
+      "label": "GSTIN NO",
+      "type": "string",
+      "validate": [
+        {
+          "type": "exact-length",
+          "threshold": "15",
+          "message": "Please enter valid GSTIN number (15 alphanumeric charcharacters)."
+        },
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_business_type",
+      "key": "nivea_business_type",
+      "label": "Business Type",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "proprietorship",
+          "label": "Proprietorship"
+        },
+        {
+          "value": "privatelimitedcompany",
+          "label": "Private Limited Company"
+        },
+        {
+          "value": "partnership",
+          "label": "Partnership"
+        }
+      ]
+    },
+    {
+      "component": "select",
+      "name": "nivea_reason_for_onboarding",
+      "key": "nivea_reason_for_onboarding",
+      "placeholder": "Reason for onboarding",
+      "scope": "application",
+      "label": "Reason for onboarding",
+      "options": [
+        {
+          "value": "",
+          "label": "Select the reason for onboarding"
+        },
+        {
+          "value": "expansionofarea",
+          "label": "Expension of area"
+        },
+        {
+          "value": "substockiestconvert",
+          "label": "Sub stockiest converted to direct Distributor"
+        },
+        {
+          "value": "replacingolddistributor",
+          "label": "Replacing the old distributor"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_distributor_name",
+      "key": "nivea_distributor_name",
+      "placeholder": "Enter distributor name as per Aadhar card",
+      "scope": "application",
+      "label": "Distributor Name",
+      "type": "string",
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_distributor_mobile_no",
+      "key": "nivea_distributor_mobile_no",
+      "placeholder": "Enter distributor's aadhar linked mobile number",
+      "scope": "application",
+      "label": "Distributor Mobile Number",
+      "type": "string",
+      "validate": [
+        {
+          "type": "exact-length",
+          "threshold": "10",
+          "message": "Please enter valid aadhar linked mobile number number (10 digits)."
+        },
+        {
+          "type": "pattern",
+          "pattern": "^[0-9]{10}$",
+          "message": "Please enter valid mobile number (10 digits)."
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_fax_number",
+      "key": "nivea_fax_number",
+      "placeholder": "Enter distributor Fax number",
+      "scope": "application",
+      "label": "Fax Number",
+      "type": "string",
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_distributor_email",
+      "key": "nivea_distributor_email",
+      "placeholder": "Enter E-mail",
+      "scope": "application",
+      "label": "Distributor e-mail ID",
+      "type": "string",
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_business_name",
+      "key": "nivea_business_name",
+      "placeholder": "Enter E-mail",
+      "scope": "application",
+      "label": "Distributor e-mail ID",
+      "type": "string",
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "date-picker",
+      "name": "nivea_date_of_incorporation",
+      "key": "nivea_date_of_incorporation",
+      "placeholder": "mm/dd/yyyy",
+      "scope": "application",
+      "label": "Enter business start date",
+      "type": "string",
+      "validate": [
+        {
+          "type": "required",
+          "message": "Enter valid date"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_business_address",
+      "key": "nivea_business_address",
+      "placeholder": "Enter Business Address",
+      "scope": "application",
+      "label": "Business Address",
+      "type": "string",
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "select",
+      "name": "nivea_state_name",
+      "key": "nivea_state_name",
+      "placeholder": "Select State",
+      "scope": "application",
+      "label": "Select State",
+      "options": [
+        {
+          "value": "",
+          "label": "Select States"
+        },
+        {
+          "value": "karnataka",
+          "label": "Karnataka"
+        },
+        {
+          "value": "andhrapradesh",
+          "label": "Andhara Pradesh"
+        },
+        {
+          "value": "kerala",
+          "label": "Kerela"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_business_size_category",
+      "key": "nivea_business_size_category",
+      "label": "Business size category",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "rajdhani",
+          "label": "Rajdhani"
+        },
+        {
+          "value": "shatabadi",
+          "label": "Shatabadi"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_distribution_multiple_brands",
+      "key": "nivea_distribution_multiple_brands",
+      "label": "Distrubtion with multiple brands",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_godown_space",
+      "key": "nivea_godown_space",
+      "placeholder": "Enter the area in square feet",
+      "scope": "application",
+      "label": "Godown space (Exclusive for nivea india)",
+      "type": "string",
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_godown_ownership",
+      "key": "nivea_godown_ownership",
+      "label": "Godown Ownership",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "own",
+          "label": "Own"
+        },
+        {
+          "value": "rental",
+          "label": "Rental"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_enter_details_delivery_packaging",
+      "key": "nivea_enter_details_delivery_packaging",
+      "placeholder": "Enter the area in square feet",
+      "scope": "application",
+      "label": "Enter Office/Delivery/Packaging area in sq.ft",
+      "type": "string",
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_vehicle_ownership",
+      "key": "nivea_vehicle_ownership",
+      "label": "Vehicle Ownership",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "owned",
+          "label": "Owned"
+        },
+        {
+          "value": "rented",
+          "label": "Rented"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_noof_primaray_vehicles",
+      "key": "nivea_noof_primaray_vehicles",
+      "placeholder": "Enter Number of primary vehicles",
+      "scope": "application",
+      "label": "Enter Number of Primary Vehicle's",
+      "type": "string",
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_distributor_strength",
+      "key": "nivea_distributor_strength",
+      "label": "Distributor Strength",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "greaterthanniveacurrenteco",
+          "label": "Greater than Nivea current ECO"
+        },
+        {
+          "value": "equaltoniveacurrentceo",
+          "label": "Equal to Nivea current ECO"
+        },
+        {
+          "value": "lessthanniveacurrenteco",
+          "label": "Less than Nivea current ECO"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_dsr_psr_planned",
+      "key": "nivea_dsr_psr_planned",
+      "placeholder": "Enter number of DSR/PSR planned",
+      "scope": "application",
+      "label": "Number of DSR/PSR planned",
+      "type": "string",
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_outlets_covered",
+      "key": "nivea_outlets_covered",
+      "placeholder": "Number of outlets to cover",
+      "scope": "application",
+      "label": "Number of outlets to cover",
+      "type": "string",
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_agencies_dealer_handling",
+      "key": "nivea_agencies_dealer_handling",
+      "placeholder": "Name of agencies dealer handling now",
+      "scope": "application",
+      "label": "Name of agencies dealer handling now",
+      "type": "string",
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "checkbox",
+      "name": "nivea_working_days",
+      "key": "nivea_working_days",
+      "label": "Working Days",
+      "description": "Day Picker",
+      "scope": "application",
+      "isRequired": true,
+      "options": [
+        {
+          "value": "monday",
+          "label": "Monday"
+        },
+        {
+          "value": "tuesday",
+          "label": "Tuesday"
+        },
+        {
+          "value": "wednesday",
+          "label": "Wednesday"
+        },
+        {
+          "value": "thursday",
+          "label": "Thursday"
+        },
+        {
+          "value": "friday",
+          "label": "Friday"
+        },
+        {
+          "value": "saturday",
+          "label": "Saturday"
+        },
+        {
+          "value": "sunday",
+          "label": "Sunday"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_servicing_standards",
+      "key": "nivea_servicing_standards",
+      "label": "Servicing standards",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "good",
+          "label": "Good"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "bad",
+          "label": "Bad"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_trade_repute",
+      "key": "nivea_trade_repute",
+      "label": "Trade repute",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "good",
+          "label": "Good"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "bad",
+          "label": "Bad"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_approach_business",
+      "key": "nivea_approach_business",
+      "label": "Approach Business",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "good",
+          "label": "Good"
+        },
+        {
+          "value": "bad",
+          "label": "Bad"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_adaption_of_automation",
+      "key": "nivea_adaption_of_automation",
+      "label": "Adaption of automation(DMS)",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_service_rating",
+      "key": "nivea_service_rating",
+      "label": "Service Rating",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "excellent",
+          "label": "Excellent"
+        },
+        {
+          "value": "good",
+          "label": "Good"
+        },
+        {
+          "value": "satisfactory",
+          "label": "Satisfactory"
+        },
+        {
+          "value": "poor",
+          "label": "Poor"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_infrastructure_rating",
+      "key": "nivea_infrastructure_rating",
+      "label": "Infrastructure Rating",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "excellent",
+          "label": "Excellent"
+        },
+        {
+          "value": "good",
+          "label": "Good"
+        },
+        {
+          "value": "satisfactory",
+          "label": "Satisfactory"
+        },
+        {
+          "value": "poor",
+          "label": "Poor"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_loading_unloading",
+      "key": "nivea_loading_unloading",
+      "label": "Loading/Unloading platform should be next to entry/exit gate of DB, such that stocks are directly transported in and out of vehicles with no trans shipment in-between. Manpower involved in movement of stocks must ensure proper handling while loading and unloading",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_loading_unloading_avatar's",
+      "key": "nivea_loading_unloading_avatar's",
+      "scope": "application",
+      "label": "Loading/Unloading platform avatar's",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_loading_unloading",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remark_loading_unloading",
+      "key": "nivea_remark_loading_unloading",
+      "scope": "application",
+      "label": "Remarks for not having recommended loading/unloading platform",
+      "type": "string",
+      "condition": {
+        "when": "nivea_loading_unloading",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_facility",
+      "key": "nivea_facility",
+      "label": "Facility should be sufficiently elevated from ground level to prevent direct access to pests/dirt/dust/rain water and water overflow etc. Entry points should be guarded to ensure no dust or pest enter storage area - e.g. PVC curtains or air curtains on entry/exit doors and fine mesh on windows, ventilators and other opening",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_facility_evaluated_ground",
+      "key": "nivea_facility_evaluated_ground",
+      "scope": "application",
+      "label": "Facility in elevated ground avatars",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_facility",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remark_for_not_faclity",
+      "key": "nivea_remark_for_not_faclity",
+      "scope": "application",
+      "label": "Remarks for not having recommended loading/unloading platform",
+      "type": "string",
+      "condition": {
+        "when": "nivea_facility",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_gaps_holes_facility",
+      "key": "nivea_gaps_holes_facility",
+      "label": "There should be no holes/gaps seen in the facility (e.g gaps under doors, shutters, windows, ventilators, holes in wall etc",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_noholes_nogaps_avatar",
+      "key": "nivea_noholes_nogaps_avatar",
+      "scope": "application",
+      "label": "No holes or gaps in facility images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_gaps_holes_facility",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remark_for_gaps_facility",
+      "key": "nivea_remark_for_gaps_facility",
+      "scope": "application",
+      "label": "Remarks for holes & gaps in facility",
+      "type": "string",
+      "condition": {
+        "when": "nivea_gaps_holes_facility",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_washroom_loacated",
+      "key": "nivea_washroom_located",
+      "label": "Washrooms should be located outside, away from storage area. In case washroom facility is nearby, it should be neatly maintained. No seepage or water ingress should happen from washroom doors, windows, ventilators or its walls into storage area",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_washroom_located_avatars",
+      "key": "nivea_washroom_located_avatars",
+      "scope": "application",
+      "label": "Nivea washrooms located outside faclity images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_washroom_loacated",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_no_washrooms",
+      "key": "nivea_remarks_for_no_washrooms",
+      "scope": "application",
+      "label": "Remarks for not maintaining washroom conditions",
+      "type": "string",
+      "condition": {
+        "when": "nivea_washroom_located_avatars",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_smooth_wellpainted_walls",
+      "key": "nivea_smooth_wellpainted_walls",
+      "label": "Walls should be smooth and well painted. There should not be any paint peeling, or greasy and dirty sports on walls which affect cartons. There should be no marks of wall paints on cartons",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_smooth_painted_avatars",
+      "key": "nivea_smooth_painted_avatars",
+      "scope": "application",
+      "label": "Smoothly finished and well painted walls - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_smooth_wellpainted_walls",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_no_paintedwalls",
+      "key": "nivea_remarks_for_no_paintedwalls",
+      "scope": "application",
+      "label": "Remarks for not having proper wall conditions",
+      "type": "string",
+      "condition": {
+        "when": "nivea_smooth_wellpainted_walls",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_lighiting_availability",
+      "key": "nivea_lighiting_availability",
+      "label": "Lights should be available throughout the storage area including overhead storage's, shelves, racks etc such that product can be traced, inspected and labels can be read at the location within storage room. All walkways, entry/exit points and loading unloading bays should be well lit",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_storageunit_light_avatars",
+      "key": "nivea_storageunit_light_avatars",
+      "scope": "application",
+      "label": "Storage unit lighting conditions - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_lighiting_availability",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_not_proper_lights",
+      "key": "nivea_remarks_for_not_proper_lights",
+      "scope": "application",
+      "label": "Remarks for not having proper lighting conditions",
+      "type": "string",
+      "condition": {
+        "when": "nivea_lighiting_availability",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_height_of_storage_area",
+      "key": "nivea_height_of_storage_area",
+      "label": "Height of storage area should be sufficient to allow stacking of stocks to recommended height, i.e. to allow easy in and out movement of both man and material. In case shelves are used for storage, the carton orientation should be correct, height should be less than maximum allowed stack height mentioned on cartons and such that the top cartons do not touch the roof/ next shelf, this is to ensure no damage while moving stocks",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_height_storage_avatars",
+      "key": "nivea_height_storage_avatars",
+      "scope": "application",
+      "label": "Storage area height conditions - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_height_of_storage_area",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_not_having_proper_height",
+      "key": "nivea_not_having_proper_height",
+      "scope": "application",
+      "label": "Remarks for not having sufficient storage height conditions",
+      "type": "string",
+      "condition": {
+        "when": "nivea_height_of_storage_area",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_walls_without_darkness_flaking",
+      "key": "nivea_walls_without_darkness_flaking",
+      "label": "There should be no dampness/soggy feel on walls. There should be no flaking or mold growth on walls due to moisture Cartons in storage area should not feel damp or soggy",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_walls_without_damage_avatars",
+      "key": "nivea_walls_without_damage_avatars",
+      "scope": "application",
+      "label": "Walls without dampness/flaking/mold growths - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_walls_without_darkness_flaking",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_reamark_for_dampness",
+      "key": "nivea_reamark_for_dampness",
+      "scope": "application",
+      "label": "Remarks for dampness/flaking/mold growth conditions on walls",
+      "type": "string",
+      "condition": {
+        "when": "nivea_walls_without_darkness_flaking",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_all_stocks_arranged",
+      "key": "nivea_all_stocks_arranged",
+      "label": "All NIVEA stocks, salable and non salable stocks should be kept separate from each other and clearly identifiable. In case of shared storage in same floor, there should a dedicated room for NIVEA stocks. In case stocks of multiple companies are kept in same room due to very less quantity, stocks must be physically separated using racks or physical partitions and no stock mix up should be observed",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_all_stocks_avatars",
+      "key": "nivea_all_stocks_avatars",
+      "scope": "application",
+      "label": "Nivea stocks arranged and identifiable - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_all_stocks_arranged",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_for_not_arranging_properly",
+      "key": "nivea_for_not_arranging_properly",
+      "scope": "application",
+      "label": "Remarks for not arranging nivea stocks clearly",
+      "type": "string",
+      "condition": {
+        "when": "nivea_all_stocks_arranged",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_storage_gaps_overcrowding",
+      "key": "nivea_storage_gaps_overcrowding",
+      "label": "The storage area should be sufficient to allow proper stacking and ensure sufficient gaps is maintained between different clients and kind of stocks, i.e. no overcrowding is present which leads to mix up and part of stocks not accessible",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_proper_staking_storage_with_gaps",
+      "key": "nivea_proper_staking_storage_with_gaps",
+      "scope": "application",
+      "label": "Proper stacking in storage with gaps - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_proper_staking_storage_with_gaps",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_no_proper_stacking",
+      "key": "nivea_remarks_no_proper_stacking",
+      "scope": "application",
+      "label": "Remarks for no proper stacking with gaps",
+      "type": "string",
+      "condition": {
+        "when": "nivea_proper_staking_storage_with_gaps",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_distributor_secured_lock",
+      "key": "nivea_distributor_secured_lock",
+      "label": "Distributor premise should be secured with lock and key facility. In case multiple access routes are present, the routes not in use should be permanently sealed and entry exit routes must be secured with lock and key arrangement during non operational hours. Entry exit doors should be of solid wood/metal with no gaps in between door and frame",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_distributor_strong_locks_avatars",
+      "key": "nivea_distributor_strong_locks_avatars",
+      "scope": "application",
+      "label": "Distributor premise with strong locks - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_distributor_secured_lock",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_no_strong_locks",
+      "key": "nivea_remarks_for_no_strong_locks",
+      "scope": "application",
+      "label": "Remarks for not having proper security measures",
+      "type": "string",
+      "condition": {
+        "when": "nivea_distributor_secured_lock",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_cctv_cemeras",
+      "key": "nivea_cctv_cemeras",
+      "label": "Preferably, additional security measures like CCTV camera's and/or security guards should be put in place to ensure stock security during both operational and non operational hours. In case of security guard, they should be placed at all active entry/exit routes and storage of NIVEA stocks as per operational/ non operational hours. In case of CCTV, complete route of entry and exit including storage of NIVEA stocks should be covered and sufficient recording backup (preferably 1 month min) must be available to enable review in case of any incident",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_cctv_cemeras_avatars",
+      "key": "nivea_cctv_cemeras_avatars",
+      "scope": "application",
+      "label": "Additional security with CC cameras, security personnel - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_cctv_cemeras",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_no_cctv",
+      "key": "nivea_remarks_for_no_cctv",
+      "scope": "application",
+      "label": "Remarks for not having additional security measures",
+      "type": "string",
+      "condition": {
+        "when": "nivea_cctv_cemeras",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_mesurements_prevent_rain_floods",
+      "key": "nivea_mesurements_prevent_rain_floods",
+      "label": "In case of a previous incident at the distributor (e.g. fire, flood water, torrential rain etc) which could potentially result in damage to the stocks, the current situation should have concrete actions in place and implemented to ensure stocks are secured from any such incident(s) in future? Note - In case there is no history of any such event, evaluate whether the current infrastructure will provide security towards any such incident(s) in future or not.",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_mesurements_taken_avatar",
+      "key": "nivea_mesurements_taken_avatar",
+      "scope": "application",
+      "label": "Measures taken to prevent rain, flood, fire incidents - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_mesurements_prevent_rain_floods",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_no_measurements",
+      "key": "nivea_remarks_for_no_measurements",
+      "scope": "application",
+      "label": "Remarks for no measures to prevent rain, flood, fire incidents",
+      "type": "string",
+      "condition": {
+        "when": "nivea_mesurements_prevent_rain_floods",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_adequate_fire_extinguishers",
+      "key": "nivea_adequate_fire_extinguishers",
+      "label": "Adequate number of fire extinguishers should be available at distributor. All available fire extinguishers should have valid shelf life always and timely refilling/replacement should be done",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_adequate_fire_extinguishers_avatars",
+      "key": "nivea_adequate_fire_extinguishers_avatars",
+      "scope": "application",
+      "label": "Adequate number of fire extinguisher/s - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_adequate_fire_extinguishers",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_no_fire_extinguishers",
+      "key": "nivea_remarks_for_no_fire_extinguishers",
+      "scope": "application",
+      "label": "Remarks for not having additional security measures",
+      "type": "string",
+      "condition": {
+        "when": "nivea_adequate_fire_extinguishers",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_loading_unloading",
+      "key": "nivea_loading_unloading",
+      "label": "Loading/Unloading platform should be next to entry/exit gate of DB, such that stocks are directly transported in and out of vehicles with no trans shipment in-between. Manpower involved in movement of stocks must ensure proper handling while loading and unloading",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_loading_unloading_avatar's",
+      "key": "nivea_loading_unloading_avatar's",
+      "scope": "application",
+      "label": "Loading/Unloading platform avatar's",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_loading_unloading",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remark_loading_unloading",
+      "key": "nivea_remark_loading_unloading",
+      "scope": "application",
+      "label": "Remarks for not having recommended loading/unloading platform",
+      "type": "string",
+      "condition": {
+        "when": "nivea_loading_unloading",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_facility",
+      "key": "nivea_facility",
+      "label": "Facility should be sufficiently elevated from ground level to prevent direct access to pests/dirt/dust/rain water and water overflow etc. Entry points should be guarded to ensure no dust or pest enter storage area - e.g. PVC curtains or air curtains on entry/exit doors and fine mesh on windows, ventilators and other opening",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_facility_evaluated_ground",
+      "key": "nivea_facility_evaluated_ground",
+      "scope": "application",
+      "label": "Facility in elevated ground avatars",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_facility",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remark_for_not_faclity",
+      "key": "nivea_remark_for_not_faclity",
+      "scope": "application",
+      "label": "Remarks for not having recommended loading/unloading platform",
+      "type": "string",
+      "condition": {
+        "when": "nivea_facility",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_gaps_holes_facility",
+      "key": "nivea_gaps_holes_facility",
+      "label": "There should be no holes/gaps seen in the facility (e.g gaps under doors, shutters, windows, ventilators, holes in wall etc",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_noholes_nogaps_avatar",
+      "key": "nivea_noholes_nogaps_avatar",
+      "scope": "application",
+      "label": "No holes or gaps in facility images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_gaps_holes_facility",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remark_for_gaps_facility",
+      "key": "nivea_remark_for_gaps_facility",
+      "scope": "application",
+      "label": "Remarks for holes & gaps in facility",
+      "type": "string",
+      "condition": {
+        "when": "nivea_gaps_holes_facility",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_washroom_loacated",
+      "key": "nivea_washroom_located",
+      "label": "Washrooms should be located outside, away from storage area. In case washroom facility is nearby, it should be neatly maintained. No seepage or water ingress should happen from washroom doors, windows, ventilators or its walls into storage area",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_washroom_located_avatars",
+      "key": "nivea_washroom_located_avatars",
+      "scope": "application",
+      "label": "Nivea washrooms located outside faclity images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_washroom_loacated",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_no_washrooms",
+      "key": "nivea_remarks_for_no_washrooms",
+      "scope": "application",
+      "label": "Remarks for not maintaining washroom conditions",
+      "type": "string",
+      "condition": {
+        "when": "nivea_washroom_located_avatars",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_smooth_wellpainted_walls",
+      "key": "nivea_smooth_wellpainted_walls",
+      "label": "Walls should be smooth and well painted. There should not be any paint peeling, or greasy and dirty sports on walls which affect cartons. There should be no marks of wall paints on cartons",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_smooth_painted_avatars",
+      "key": "nivea_smooth_painted_avatars",
+      "scope": "application",
+      "label": "Smoothly finished and well painted walls - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_smooth_wellpainted_walls",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_no_paintedwalls",
+      "key": "nivea_remarks_for_no_paintedwalls",
+      "scope": "application",
+      "label": "Remarks for not having proper wall conditions",
+      "type": "string",
+      "condition": {
+        "when": "nivea_smooth_wellpainted_walls",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_lighiting_availability",
+      "key": "nivea_lighiting_availability",
+      "label": "Lights should be available throughout the storage area including overhead storage's, shelves, racks etc such that product can be traced, inspected and labels can be read at the location within storage room. All walkways, entry/exit points and loading unloading bays should be well lit",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_storageunit_light_avatars",
+      "key": "nivea_storageunit_light_avatars",
+      "scope": "application",
+      "label": "Storage unit lighting conditions - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_lighiting_availability",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_not_proper_lights",
+      "key": "nivea_remarks_for_not_proper_lights",
+      "scope": "application",
+      "label": "Remarks for not having proper lighting conditions",
+      "type": "string",
+      "condition": {
+        "when": "nivea_lighiting_availability",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_height_of_storage_area",
+      "key": "nivea_height_of_storage_area",
+      "label": "Height of storage area should be sufficient to allow stacking of stocks to recommended height, i.e. to allow easy in and out movement of both man and material. In case shelves are used for storage, the carton orientation should be correct, height should be less than maximum allowed stack height mentioned on cartons and such that the top cartons do not touch the roof/ next shelf, this is to ensure no damage while moving stocks",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_height_storage_avatars",
+      "key": "nivea_height_storage_avatars",
+      "scope": "application",
+      "label": "Storage area height conditions - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_height_of_storage_area",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_not_having_proper_height",
+      "key": "nivea_not_having_proper_height",
+      "scope": "application",
+      "label": "Remarks for not having sufficient storage height conditions",
+      "type": "string",
+      "condition": {
+        "when": "nivea_height_of_storage_area",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_walls_without_darkness_flaking",
+      "key": "nivea_walls_without_darkness_flaking",
+      "label": "There should be no dampness/soggy feel on walls. There should be no flaking or mold growth on walls due to moisture Cartons in storage area should not feel damp or soggy",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_walls_without_damage_avatars",
+      "key": "nivea_walls_without_damage_avatars",
+      "scope": "application",
+      "label": "Walls without dampness/flaking/mold growths - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_walls_without_darkness_flaking",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_reamark_for_dampness",
+      "key": "nivea_reamark_for_dampness",
+      "scope": "application",
+      "label": "Remarks for dampness/flaking/mold growth conditions on walls",
+      "type": "string",
+      "condition": {
+        "when": "nivea_walls_without_darkness_flaking",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_all_stocks_arranged",
+      "key": "nivea_all_stocks_arranged",
+      "label": "All NIVEA stocks, salable and non salable stocks should be kept separate from each other and clearly identifiable. In case of shared storage in same floor, there should a dedicated room for NIVEA stocks. In case stocks of multiple companies are kept in same room due to very less quantity, stocks must be physically separated using racks or physical partitions and no stock mix up should be observed",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_all_stocks_avatars",
+      "key": "nivea_all_stocks_avatars",
+      "scope": "application",
+      "label": "Nivea stocks arranged and identifiable - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_all_stocks_arranged",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_for_not_arranging_properly",
+      "key": "nivea_for_not_arranging_properly",
+      "scope": "application",
+      "label": "Remarks for not arranging nivea stocks clearly",
+      "type": "string",
+      "condition": {
+        "when": "nivea_all_stocks_arranged",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_storage_gaps_overcrowding",
+      "key": "nivea_storage_gaps_overcrowding",
+      "label": "The storage area should be sufficient to allow proper stacking and ensure sufficient gaps is maintained between different clients and kind of stocks, i.e. no overcrowding is present which leads to mix up and part of stocks not accessible",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_proper_staking_storage_with_gaps",
+      "key": "nivea_proper_staking_storage_with_gaps",
+      "scope": "application",
+      "label": "Proper stacking in storage with gaps - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_proper_staking_storage_with_gaps",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_no_proper_stacking",
+      "key": "nivea_remarks_no_proper_stacking",
+      "scope": "application",
+      "label": "Remarks for no proper stacking with gaps",
+      "type": "string",
+      "condition": {
+        "when": "nivea_proper_staking_storage_with_gaps",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_distributor_secured_lock",
+      "key": "nivea_distributor_secured_lock",
+      "label": "Distributor premise should be secured with lock and key facility. In case multiple access routes are present, the routes not in use should be permanently sealed and entry exit routes must be secured with lock and key arrangement during non operational hours. Entry exit doors should be of solid wood/metal with no gaps in between door and frame",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_distributor_strong_locks_avatars",
+      "key": "nivea_distributor_strong_locks_avatars",
+      "scope": "application",
+      "label": "Distributor premise with strong locks - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_distributor_secured_lock",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_no_strong_locks",
+      "key": "nivea_remarks_for_no_strong_locks",
+      "scope": "application",
+      "label": "Remarks for not having proper security measures",
+      "type": "string",
+      "condition": {
+        "when": "nivea_distributor_secured_lock",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_cctv_cemeras",
+      "key": "nivea_cctv_cemeras",
+      "label": "Preferably, additional security measures like CCTV camera's and/or security guards should be put in place to ensure stock security during both operational and non operational hours. In case of security guard, they should be placed at all active entry/exit routes and storage of NIVEA stocks as per operational/ non operational hours. In case of CCTV, complete route of entry and exit including storage of NIVEA stocks should be covered and sufficient recording backup (preferably 1 month min) must be available to enable review in case of any incident",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_cctv_cemeras_avatars",
+      "key": "nivea_cctv_cemeras_avatars",
+      "scope": "application",
+      "label": "Additional security with CC cameras, security personnel - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_cctv_cemeras",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_no_cctv",
+      "key": "nivea_remarks_for_no_cctv",
+      "scope": "application",
+      "label": "Remarks for not having additional security measures",
+      "type": "string",
+      "condition": {
+        "when": "nivea_cctv_cemeras",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_mesurements_prevent_rain_floods",
+      "key": "nivea_mesurements_prevent_rain_floods",
+      "label": "In case of a previous incident at the distributor (e.g. fire, flood water, torrential rain etc) which could potentially result in damage to the stocks, the current situation should have concrete actions in place and implemented to ensure stocks are secured from any such incident(s) in future? Note - In case there is no history of any such event, evaluate whether the current infrastructure will provide security towards any such incident(s) in future or not.",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_mesurements_taken_avatar",
+      "key": "nivea_mesurements_taken_avatar",
+      "scope": "application",
+      "label": "Measures taken to prevent rain, flood, fire incidents - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_mesurements_prevent_rain_floods",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_no_measurements",
+      "key": "nivea_remarks_for_no_measurements",
+      "scope": "application",
+      "label": "Remarks for no measures to prevent rain, flood, fire incidents",
+      "type": "string",
+      "condition": {
+        "when": "nivea_mesurements_prevent_rain_floods",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_adequate_fire_extinguishers",
+      "key": "nivea_adequate_fire_extinguishers",
+      "label": "Adequate number of fire extinguishers should be available at distributor. All available fire extinguishers should have valid shelf life always and timely refilling/replacement should be done",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_adequate_fire_extinguishers_avatars",
+      "key": "nivea_adequate_fire_extinguishers_avatars",
+      "scope": "application",
+      "label": "Adequate number of fire extinguisher/s - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_adequate_fire_extinguishers",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_no_fire_extinguishers",
+      "key": "nivea_remarks_for_no_fire_extinguishers",
+      "scope": "application",
+      "label": "Remarks for not having additional security measures",
+      "type": "string",
+      "condition": {
+        "when": "nivea_adequate_fire_extinguishers",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_cartoons_stored",
+      "key": "nivea_cartoons_stored",
+      "label": "Check how cartons are stored - Storage should be product wise and should enable product wise identification - In case of storage constraint, heavier cartons should be placed on bottom and lighter on top - There should be no damage to cartons due to stacking practices (e.g. bending/buckling etc.) - Open cartons should be placed independently on top to avoid damage",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_cartoons_stored_avatars",
+      "key": "nivea_cartoons_stored_avatars's",
+      "scope": "application",
+      "label": "Cartons stored - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_cartoons_stored",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_not_storing_cartoons",
+      "key": "nivea_remarks_for_not_storing_cartoons",
+      "scope": "application",
+      "label": "Remarks for not storing cartons correctly",
+      "type": "string",
+      "condition": {
+        "when": "nivea_cartoons_stored",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_bulking_of_cartons",
+      "key": "nivea_bulking_of_cartons",
+      "label": "There should be no buckling of cartons - Stack of cartons should not be sagging to one side. - Products must be stacked neatly in a brick/block/pin wheel pattern layer ensuring strength of stack. - No damage due to improper storage or handling and stacking practices - All stacks should be straight and in proper manner to ensure cartons do not get damaged - No loose products should be stored in open.",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_no_bulking_carton_avatars",
+      "key": "nivea_no_bulking_carton_avatars",
+      "scope": "application",
+      "label": "No Buckling of carton images - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_bulking_of_cartons",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_bulking",
+      "key": "nivea_remarks_for_bulking",
+      "scope": "application",
+      "label": "Remarks for buckling of cartons",
+      "type": "string",
+      "condition": {
+        "when": "nivea_bulking_of_cartons",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_cartons_bulked_damaged",
+      "key": "nivea_cartons_bulked_damaged",
+      "label": "In case cartons get buckled/damaged, they should be either replaced on placed on top to avoid further damages - Similarly all half-empty cartons should be kept on top to avoid further damages.",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_cartons_get_bulked_damaged_avatars",
+      "key": "nivea_cartons_get_bulked_damaged_avatars",
+      "scope": "application",
+      "label": "In case cartons get buckled/damaged, they should be either replaced or placed on top to avoid further damage - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_cartons_bulked_damaged",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_not_storing_damage_cart_on_top",
+      "key": "nivea_remarks_not_storing_damage_cart_on_top",
+      "scope": "application",
+      "label": "Remarks for not storing damaged cartons on top",
+      "type": "string",
+      "condition": {
+        "when": "nivea_cartons_bulked_damaged",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_loose_half_empty_cartons",
+      "key": "nivea_loose_half_empty_cartons",
+      "label": "Access to loose/half empty cartons should be controlled- Only one carton should be open at a time for one NART, multiple open cartons of same NART should not be there.",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_loose_half_empty_cartons_avatars",
+      "key": "nivea_loose_half_empty_cartons_avatars",
+      "scope": "application",
+      "label": "Nivea washrooms located outside faclity images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_loose_half_empty_cartons",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_not_controlling_loose_cartons",
+      "key": "nivea_remarks_not_controlling_loose_cartons",
+      "scope": "application",
+      "label": "Remarks for not maintaining washroom conditions",
+      "type": "string",
+      "condition": {
+        "when": "nivea_loose_half_empty_cartons",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_bd_loactions",
+      "key": "nivea_bd_loactions",
+      "label": "Loose stocks must be avoided at all DB locations. - At DB, all stocks should be either in cartons, covered crates or in shrink (applicable only for fully shrinked stocks and where some pieces are dispensed)- Racks used for storage should be clean, no dust, rusting etc - If crates are used for stock storage, they should be clean",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_loose_stock_db_avatars",
+      "key": "nivea_loose_stock_db_avatars",
+      "scope": "application",
+      "label": "Loose stocks must be avoided at all DB locations - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_bd_loactions",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_not_avoding_loose_stocks",
+      "key": "nivea_remarks_for_not_avoding_loose_stocks",
+      "scope": "application",
+      "label": "Remarks for not avoiding loose stocks at all locations",
+      "type": "string",
+      "condition": {
+        "when": "nivea_bd_loactions",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_fifo_maintained_stocks",
+      "key": "nivea_fifo_maintained_stocks",
+      "label": "FEFO (First Expiry First Out) should be maintained for stocks - Pick few products with highest volume and few with lowest volume.- Check for stock qty and batch wise qty, match same with physical stock Note - FEFO (First Expiry First Out) is different from FIFO (First In First Out).- FEFO is based on expiry and batches which expire first should go to market first.",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_fefo_maintained_for_stocks_avatars",
+      "key": "nivea_fefo_maintained_for_stocks_avatars",
+      "scope": "application",
+      "label": "FEFO maintained for stocks - image",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_fifo_maintained_stocks",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_not_maintaining_fefo_for_stocks",
+      "key": "nivea_not_maintaining_fefo_for_stocks",
+      "scope": "application",
+      "label": "Remarks for not maintaining FEFO for stocks",
+      "type": "string",
+      "condition": {
+        "when": "nivea_fifo_maintained_stocks",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_damaged_rejected_expired_stocks",
+      "key": "nivea_damaged_rejected_expired_stocks",
+      "label": " Check where damaged/rejected/expired and non-salable stocks are kept - Such stocks should be kept physically segregated from salable stocks,i.e. separate location with physical demarcation - No mix up should be observed in such stocks - i.e. no salable pieces should be mixed with such stocks - All non salable stocks must be clearly identified by category type (damage, rejected, returns, expiry etc) - All non salable stocks must be clearly identified by product type and stock details must be maintained for individual carton - Storage condition of all non salable stocks should ensure no further deterioration or damage happens to such stocks",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_damaged_rejected_expired_stocks_avatar",
+      "key": "nivea_damaged_rejected_expired_stocks_avatar",
+      "scope": "application",
+      "label": "Place where damaged, rejected, expired and non-salable stocks are kept - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_damaged_rejected_expired_stocks",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_not_maintaining_standards_stocks",
+      "key": "nivea_not_maintaining_standards_stocks",
+      "scope": "application",
+      "label": "Remarks for not maintaining standards for storing damaged/rejeted/expired stocks",
+      "type": "string",
+      "condition": {
+        "when": "nivea_damaged_rejected_expired_stocks",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_co_stored_nivea_stocks",
+      "key": "nivea_co_stored_nivea_stocks",
+      "label": "Below products should not be co-stored along with NIVEA stocks - Inflammable or heavy smelling products (e.g Chemicals/Paints/Brittle items like glasses/tube lights/Oils/Fuels/Batteries, e.t.c",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_inflammable_smelly_products_avatar",
+      "key": "nivea_inflammable_smelly_products_avatar",
+      "scope": "application",
+      "label": "Inflammable/Smelly products not be co-stored with or alongside NIVEA stocks - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_co_stored_nivea_stocks",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remark_keeping_inflammable_smelly",
+      "key": "nivea_remark_keeping_inflammable_smelly",
+      "scope": "application",
+      "label": "Remarks for keeping inflammable/smelly products with NIVEA stocks",
+      "type": "string",
+      "condition": {
+        "when": "nivea_co_stored_nivea_stocks",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_stock_walls_on_roof",
+      "key": "nivea_stock_walls_on_roof",
+      "label": "Stocks should be kept away from walls and roof - i.e. stocks should not touch walls and roof during storage - There should be clear gap/identification between different stocks of Product wise",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_stock_kept_on_roof_avatar",
+      "key": "nivea_stock_kept_on_roof_avatar",
+      "scope": "application",
+      "label": "Stocks should be kept away from walls and roof - image",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_stock_walls_on_roof",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remark_not_keeping_stock_away_from_walls",
+      "key": "nivea_remark_not_keeping_stock_away_from_walls",
+      "scope": "application",
+      "label": "Remarks for not keeping stocks away from walls and roof",
+      "type": "string",
+      "condition": {
+        "when": "nivea_stock_walls_on_roof",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_stored_on_pallets_good_quality",
+      "key": "nivea_stored_on_pallets_good_quality",
+      "label": "Stocks should be stored on pallets or good Quality intact tarpaulin - images",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_stored_on_pallets_good_quality_avatar",
+      "key": "nivea_stored_on_pallets_good_quality_avatar",
+      "scope": "application",
+      "label": "Stocks should be stored on pallets or good Quality intact tarpaulin - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_stored_on_pallets_good_quality",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_no_pallets_good_quality",
+      "key": "nivea_remarks_no_pallets_good_quality",
+      "scope": "application",
+      "label": "Remarks for no pallets good quality",
+      "type": "string",
+      "condition": {
+        "when": "nivea_stored_on_pallets_good_quality",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_cartons_should_stacked_as_height",
+      "key": "nivea_cartons_should_stacked_as_height",
+      "label": "Cartons should be stacked as per staking height mentioned on same. - No over staking should be done over and above recommended stack height. - Cartons should be kept in upright direction, indicated by arrow mark on each carton. - No cartons should be placed in inverted or side wards orientation",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_cartons_should_stacked_as_height_avatar",
+      "key": "nivea_cartons_should_stacked_as_height_avatar",
+      "scope": "application",
+      "label": "Cartons should be stacked as per staking height mentioned - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_cartons_should_stacked_as_height",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_not_storing_stacks_as_height",
+      "key": "nivea_remarks_not_storing_stacks_as_height",
+      "scope": "application",
+      "label": "Remarks for not storing stacks as per staking height",
+      "type": "string",
+      "condition": {
+        "when": "nivea_cartons_should_stacked_as_height",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_db_and_no_damange",
+      "key": "nivea_db_and_no_damange",
+      "label": "Check stocks available at DB and no damage should be observed in stocks",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_db_and_no_damange_avatar",
+      "key": "nivea_db_and_no_damange_avatar",
+      "scope": "application",
+      "label": "Stocks available at DB and no damage observed in stocks - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_db_and_no_damange",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_stocks_not_avaliable",
+      "key": "nivea_remarks_for_stocks_not_avaliable",
+      "scope": "application",
+      "label": "Remarks for stocks not available/ damage in stocks",
+      "type": "string",
+      "condition": {
+        "when": "nivea_db_and_no_damange",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_review_overall_facility_management",
+      "key": "nivea_review_overall_facility_management",
+      "label": "Review overall facility and stock management - In case you find any risk which is present and poses risk to stock or its handling, mark as 'Yes' and put comments in remark- In case of no risk, mark as 'No'",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_risks_in_facility",
+      "key": "nivea_remarks_for_risks_in_facility",
+      "scope": "application",
+      "label": "Remarks for risks in facility and stock management",
+      "type": "string",
+      "condition": {
+        "when": "nivea_review_overall_facility_management",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_nokind_of_birds_pets_in_db_storage_area",
+      "key": "nivea_nokind_of_birds_pets_in_db_storage_area",
+      "label": "No kind of birds, pests, rodents, insects should be observed in DB storage area",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_no_birds_avatar",
+      "key": "nivea_no_birds_avatar",
+      "scope": "application",
+      "label": "DB storage area with no pest/bird signs-images - Should not cover all areas of DB storage",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_nokind_of_birds_pets_in_db_storage_area",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_db_storagearea_with_pets_incects",
+      "key": "nivea_remarks_db_storagearea_with_pets_incects",
+      "scope": "application",
+      "label": "Remarks for DB storage area with pests, birds, rodents. insects",
+      "type": "string",
+      "condition": {
+        "when": "nivea_nokind_of_birds_pets_in_db_storage_area",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_storage_facility_with_no_pets",
+      "key": "nivea_storage_facility_with_no_pets",
+      "label": "No signs of pests (like feathers, dead remains,droppings etc.) should be present at the storage facility.",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_storage_facility_with_no_pets_avatar",
+      "key": "nivea_storage_facility_with_no_pets_avatar",
+      "scope": "application",
+      "label": "Storage facility with no pest/bird signs - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_storage_facility_with_no_pets",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_db_storage_area_with_pets",
+      "key": "nivea_remarks_for_db_storage_area_with_pets",
+      "scope": "application",
+      "label": "Remarks for DB storage area with pest, bird signs like dropping, dead remains, etc",
+      "type": "string",
+      "condition": {
+        "when": "nivea_storage_facility_with_no_pets",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_should_have_pest_control_system",
+      "key": "nivea_should_have_pest_control_system",
+      "label": "DB should have a pest control system in place - e.g. rodent boxes, fly traps, regular pest management service contract etc.   ",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_pest_controls_review",
+      "key": "nivea_pest_controls_review",
+      "scope": "application",
+      "label": "Pest Control systems",
+      "type": "string",
+      "condition": {
+        "when": "nivea_should_have_pest_control_system",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_storage_area_without_dust",
+      "key": "nivea_storage_area_without_dust",
+      "label": "No signs of cobwebs/dust etc should be found in storage area",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_storage_area_without_dust_avatar",
+      "key": "nivea_storage_area_without_dust_avatar",
+      "scope": "application",
+      "label": "Storage area without dust/cobwebs - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_storage_area_without_dust",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_cobwebs_dust",
+      "key": "nivea_remarks_for_cobwebs_dust",
+      "scope": "application",
+      "label": "Remarks for cobwebs/dust in storage area",
+      "type": "string",
+      "condition": {
+        "when": "nivea_storage_area_without_dust",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_clean_storage_facility",
+      "key": "nivea_clean_storage_facility",
+      "label": "Storage facility should be cleaned on regular basis. A designated housekeeping personnel should be available to clean the facility.",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_clean_storage_facility_avatar",
+      "key": "nivea_clean_storage_facility_avatar",
+      "scope": "application",
+      "label": "Clean storage facility - images",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_clean_storage_facility",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_not_cleaning_storage",
+      "key": "nivea_remarks_for_not_cleaning_storage",
+      "scope": "application",
+      "label": "Remarks for not cleaning storage facility regularly",
+      "type": "string",
+      "condition": {
+        "when": "nivea_clean_storage_facility",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_noitems_cigarettes_matches",
+      "key": "nivea_noitems_cigarettes_matches",
+      "label": "No items such as cigarettes/beedis/match boxes/pan/guthkas or other tobacco products should be observed in the facility - Signs like spit marks or gutka and empty pouches should not be present",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_noitems_cigarettes_matches_avathar",
+      "key": "nivea_noitems_cigarettes_matches_avathar",
+      "scope": "application",
+      "label": "No items such as cigarettes/beedis/match boxes/pan/guthkas or other tobacco products should be observed in the facility - image/s",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_noitems_cigarettes_matches",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_finding_tobacco",
+      "key": "nivea_remarks_for_finding_tobacco",
+      "scope": "application",
+      "label": "Remarks for finding tobacco products in facility",
+      "type": "string",
+      "condition": {
+        "when": "nivea_noitems_cigarettes_matches",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_eating_should_be_done_in_designated_place",
+      "key": "nivea_eating_should_be_done_in_designated_place",
+      "label": "Eating/storing food items should be done in a designated place away from storage area",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "custom-fileUpload",
+      "name": "nivea_eating_should_be_done_in_designated_place_avathar",
+      "key": "nivea_eating_should_be_done_in_designated_place_avathar",
+      "scope": "application",
+      "label": "Designated place away from storage area for eating or storing food items - image/s",
+      "acceptFileType": "image/*,.pdf",
+      "uploadPath": "{{base_go_url}}/api/file/upload",
+      "type": "string",
+      "maxSize": 5,
+      "condition": {
+        "when": "nivea_eating_should_be_done_in_designated_place",
+        "is": "yes"
+      },
+      "validate": [
+        {
+          "type": "required",
+          "message": "Upload Images, in PNG, JPG, JPEG"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_not_having_designated_place",
+      "key": "nivea_remarks_for_not_having_designated_place",
+      "scope": "application",
+      "label": "Remarks for not having designated place for eating or storing food items",
+      "type": "string",
+      "condition": {
+        "when": "nivea_eating_should_be_done_in_designated_place",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_type_of_customer_request",
+      "key": "nivea_type_of_customer_request",
+      "label": "Type of customer request",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "new",
+          "label": "New"
+        },
+        {
+          "value": "change",
+          "label": "Change"
+        }
+      ]
+    },
+    {
+      "component": "select",
+      "name": "nivea_distributor_type",
+      "key": "nivea_distributor_type",
+      "placeholder": "Distributor type",
+      "scope": "application",
+      "label": "Distributor type",
+      "options": [
+        {
+          "value": "",
+          "label": "Select Type Of Distributor"
+        },
+        {
+          "value": "generaltradedistributor",
+          "label": "General Trade Distributor"
+        },
+        {
+          "value": "generaltradesuperstockiest",
+          "label": "General Trade Super Stockiest"
+        },
+        {
+          "value": "morderntradeidkadistributor",
+          "label": "Mordern Trade IDKA Distributor"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_cin_no",
+      "key": "nivea_cin_no",
+      "placeholder": "Enter CIN No",
+      "scope": "application",
+      "label": "Enter CIN No",
+      "type": "string",
+      "condition": {
+        "when": "nivea_distributor_type",
+        "is": "generaltradesuperstockiest"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "select",
+      "name": "nivea_sales_office",
+      "key": "nivea_sales_office",
+      "placeholder": "Sales office",
+      "scope": "application",
+      "label": "Sales Office",
+      "options": [
+        {
+          "value": "",
+          "label": "Select Sales Office"
+        },
+        {
+          "value": "yin2indianorth",
+          "label": "YIN2 India-North"
+        },
+        {
+          "value": "yin4indiawest",
+          "label": "YIN4 India-West"
+        },
+        {
+          "value": "yin5indiasouth",
+          "label": "YIN5 India-South"
+        },
+        {
+          "value": "yin7indiaeast",
+          "label": "YIN7 India-East"
+        }
+      ],
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "select",
+      "name": "nivea_customer_group",
+      "key": "nivea_customer_group",
+      "placeholder": "Customer Group",
+      "scope": "application",
+      "label": "Customeer Group",
+      "options": [
+        {
+          "value": "",
+          "label": "Select Customer Group"
+        }
+      ],
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "select",
+      "name": "nivea_sap_region_name",
+      "key": "nivea_sap_region_name",
+      "placeholder": "SAP Region Name",
+      "scope": "application",
+      "label": "SAP Region Name",
+      "options": [
+        {
+          "value": "",
+          "label": "Maharastra"
+        }
+      ],
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    },
+    {
+      "component": "radio",
+      "name": "nivea_move_to_next_stage",
+      "key": "nivea_move_to_next_stage",
+      "label": "Move to next stage",
+      "scope": "application",
+      "hideField": false,
+      "options": [
+        {
+          "value": "yes",
+          "label": "Yes"
+        },
+        {
+          "value": "no",
+          "label": "No"
+        }
+      ]
+    },
+    {
+      "component": "text-field",
+      "name": "nivea_remarks_for_saving_for_future",
+      "key": "nivea_remarks_for_saving_for_future",
+      "placeholder": "Enter Remarks",
+      "scope": "application",
+      "label": "Enter remarks for saving for future   ",
+      "type": "string",
+      "condition": {
+        "when": "nivea_move_to_next_stage",
+        "is": "no"
+      },
+      "validate": [
+        {
+          "type": "required"
+        }
+      ]
+    }
+  ]
+}
