@@ -10,5 +10,5 @@ app.use("/", async (req, res) => {
   res.send("App is running successful");
 });
 app.listen(port, async (req, res) => {
-  console.log(`App is running on localhost port ${port} successfully`);
+  console.log(`Our App is running on localhost port ${port} successfully`);
 });
