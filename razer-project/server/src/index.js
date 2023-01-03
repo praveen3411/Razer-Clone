@@ -7,8 +7,8 @@ app.use(express.json());
 app.use(cors());
 app.use(compression());
 app.use("/", async (req, res) => {
-  res.send("App is running successful");
+  res.send("App is running successful and ready to work with Backend 🥳");
 });
 app.listen(port, async (req, res) => {
-  console.log(`Our App is running on localhost port ${port} successfully`);
+  console.log(`Our app is running on ${port} successfully`);
 });
