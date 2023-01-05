@@ -6,7 +6,7 @@ export default function SupportPage() {
   return (
     <Box>
       <SupportNavbarData />
-      <ShowingOffer passoffer={"Here you can see all the projects"}/>
+      <ShowingOffer passoffer={"Here you can see all the projects"} />
       <h1 style={{ color: "white" }}>Support</h1>
     </Box>
   );
