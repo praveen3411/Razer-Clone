@@ -6,7 +6,7 @@ export default function SupportPage() {
   return (
     <Box>
       <SupportNavbarData />
-      <ShowingOffer passoffer={"Here you can see all the projects"} />
+      <ShowingOffer passoffer={"All orders over US$79 will enjoy free standard shipping to the United States."} />
       <h1 style={{ color: "white" }}>Support</h1>
     </Box>
   );

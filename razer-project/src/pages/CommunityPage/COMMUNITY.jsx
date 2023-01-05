@@ -6,7 +6,11 @@ export default function CommunityPage() {
   return (
     <Box>
       <CommunityNavbarData />
-      <ShowingOffer passoffer={"Here we can see offer for the days"} />
+      <ShowingOffer
+        passoffer={
+          "All orders over US$79 will enjoy free standard shipping to the United States."
+        }
+      />
       <h1 style={{ color: "white" }}>Community</h1>
     </Box>
   );

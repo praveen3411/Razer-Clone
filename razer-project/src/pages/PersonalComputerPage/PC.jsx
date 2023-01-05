@@ -5,7 +5,7 @@ export default function PersonalPage() {
   return (
     <Box>
       <PcNavbarData />
-      <ShowingOffer passoffer={"Here you can see the offers"}/>
+      <ShowingOffer passoffer={"All orders over US$79 will enjoy free standard shipping to the United States."}/>
       <h1 style={{ color: "white" }}>PC Page</h1>
     </Box>
   );

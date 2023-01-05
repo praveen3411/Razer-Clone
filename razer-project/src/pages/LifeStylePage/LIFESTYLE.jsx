@@ -5,7 +5,7 @@ export default function LifeStylePage() {
   return (
     <Box>
       <LifestyleNavbarData />
-      <ShowingOffer passoffer={"Here we can see the Offers"} />
+      <ShowingOffer passoffer={"All orders over US$79 will enjoy free standard shipping to the United States."} />
       <h1 style={{ color: "white" }}>LifeStyle</h1>
     </Box>
   );

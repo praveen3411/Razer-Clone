@@ -5,7 +5,7 @@ export default function ServicesPage() {
   return (
     <Box>
       <ServiceNavbarData />
-      <ShowingOffer passoffer={"Here you can see all the props"}/>
+      <ShowingOffer passoffer={"All orders over US$79 will enjoy free standard shipping to the United States."}/>
       <h1 style={{ color: "white" }}>Services</h1>
     </Box>
   );
