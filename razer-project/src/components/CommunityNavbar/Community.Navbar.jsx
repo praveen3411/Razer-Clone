@@ -11,49 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 import { NavLink } from "react-router-dom";
-
-const pages = [
-  {
-    to: "/community/getstarted",
-    title: "Get Started",
-  },
-  {
-    to: "/community/esports",
-    title: "Esports",
-  },
-  {
-    to: "/community/razerstreamer",
-    title: "Razer Streamer",
-  },
-  {
-    to: "/community/events",
-    title: "Events",
-  },
-  {
-    to: "/community/insider",
-    title: "Insider",
-  },
-  {
-    to: "/community/student",
-    title: "Student",
-  },
-  {
-    to: "/community/wallpapers",
-    title: "WallPapers",
-  },
-  {
-    to: "/community/stickers",
-    title: "Stickers",
-  },
-  {
-    to: "/community/developers",
-    title: "Developers",
-  },
-  {
-    to: "/community/sustainability",
-    title: "Sustainability",
-  },
-];
+import { CommunityNavbarPages } from "../DataBase/AllRoutesData";
 
 function CommunityNavbarData() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -96,7 +54,7 @@ function CommunityNavbarData() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {CommunityNavbarPages.map((page) => (
                 <MenuItem key={page.to} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
@@ -129,7 +87,7 @@ function CommunityNavbarData() {
               display: { xs: "none", md: "flex" },
             }}
           >
-            {pages.map((page) => (
+            {CommunityNavbarPages.map((page) => (
               <NavLink
                 key={page.title}
                 style={{ textDecoration: "none" }}

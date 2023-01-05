@@ -11,57 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 import { NavLink } from "react-router-dom";
-
-const pages = [
-  {
-    to: "/personal/laptops",
-    title: "Laptops",
-  },
-  {
-    to: "/personal/desktops",
-    title: "Desktops & Components",
-  },
-  {
-    to: "/personal/monitors",
-    title: "Monitors",
-  },
-  {
-    to: "/personal/mice",
-    title: "Mice",
-  },
-  {
-    to: "/personal/mats",
-    title: "Mats",
-  },
-  {
-    to: "/personal/keyboard",
-    title: "Keyboars",
-  },
-  {
-    to: "/personal/headset",
-    title: "Headsets",
-  },
-  {
-    to: "/personal/speaker",
-    title: "Speakers",
-  },
-  {
-    to: "/personal/streaming",
-    title: "Streaming",
-  },
-  {
-    to: "/personal/productivity",
-    title: "Productivity",
-  },
-  {
-    to: "/personal/chairs",
-    title: "Chairs",
-  },
-  {
-    to: "/personal/software",
-    title: "Software",
-  },
-];
+import { PcNavbarPages } from "../DataBase/AllRoutesData";
 
 function PcNavbarData() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -104,7 +54,7 @@ function PcNavbarData() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {PcNavbarPages.map((page) => (
                 <MenuItem key={page.to} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
@@ -137,8 +87,12 @@ function PcNavbarData() {
               display: { xs: "none", md: "flex" },
             }}
           >
-            {pages.map((page) => (
-              <NavLink key={page.title} style={{ textDecoration: "none" }} to={page.to}>
+            {PcNavbarPages.map((page) => (
+              <NavLink
+                key={page.title}
+                style={{ textDecoration: "none" }}
+                to={page.to}
+              >
                 <Typography
                   key={page.title}
                   onClick={handleCloseNavMenu}

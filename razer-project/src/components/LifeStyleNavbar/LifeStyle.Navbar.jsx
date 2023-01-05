@@ -11,53 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 import { NavLink } from "react-router-dom";
-
-const pages = [
-  {
-    to: "/lifestyle/chairs",
-    title: "Chairs",
-  },
-  {
-    to: "/lifestyle/wearables",
-    title: "Wearables",
-  },
-  {
-    to: "/lifestyle/apparel",
-    title: "Apparel",
-  },
-  {
-    to: "/lifestyle/bags",
-    title: "Bags",
-  },
-  {
-    to: "/lifestyle/gear",
-    title: "Gear",
-  },
-  {
-    to: "/lifestyle/snekisnek",
-    title: "Sneki Snek",
-  },
-  {
-    to: "/lifestyle/respawn",
-    title: "Respawn",
-  },
-  {
-    to: "/lifestyle/customs",
-    title: "Customs",
-  },
-  {
-    to: "/lifestyle/collabs",
-    title: "Collabs",
-  },
-  {
-    to: "/lifestyle/book",
-    title: "Book",
-  },
-  {
-    to: "/lifestyle/mac",
-    title: "Mac",
-  },
-];
+import { LifestyleNavbarPages } from "../DataBase/AllRoutesData";
 
 function LifestyleNavbarData() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -100,7 +54,7 @@ function LifestyleNavbarData() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {LifestyleNavbarPages.map((page) => (
                 <MenuItem key={page.to} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
@@ -133,7 +87,7 @@ function LifestyleNavbarData() {
               display: { xs: "none", md: "flex" },
             }}
           >
-            {pages.map((page) => (
+            {LifestyleNavbarPages.map((page) => (
               <NavLink
                 key={page.title}
                 style={{ textDecoration: "none" }}

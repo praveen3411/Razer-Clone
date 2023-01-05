@@ -11,37 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 import { NavLink } from "react-router-dom";
-
-const pages = [
-  {
-    to: "/services/gold",
-    title: "Gold",
-  },
-  {
-    to: "/services/silver",
-    title: "Silver",
-  },
-  {
-    to: "/services/goldpins",
-    title: "Gold PINS",
-  },
-  {
-    to: "/services/goldwebshop",
-    title: "Gold Webshop",
-  },
-  {
-    to: "/services/giftcards",
-    title: "Gift Cards",
-  },
-  {
-    to: "/services/razercare",
-    title: "Razer Care",
-  },
-  {
-    to: "/services/razerid",
-    title: "Razer Id",
-  },
-];
+import { ServiceNavbarPages } from "../DataBase/AllRoutesData";
 
 function ServiceNavbarData() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -84,7 +54,7 @@ function ServiceNavbarData() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {ServiceNavbarPages.map((page) => (
                 <MenuItem key={page.to} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
@@ -117,7 +87,7 @@ function ServiceNavbarData() {
               display: { xs: "none", md: "flex" },
             }}
           >
-            {pages.map((page) => (
+            {ServiceNavbarPages.map((page) => (
               <NavLink
                 key={page.title}
                 style={{ textDecoration: "none" }}

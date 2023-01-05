@@ -15,51 +15,8 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { ImageList } from "@mui/material";
 import { Link, NavLink } from "react-router-dom";
-
-const pages = [
-  {
-    to: "/personal",
-    title: "PC",
-  },
-  {
-    to: "/console",
-    title: "Console",
-  },
-  {
-    to: "/mobile",
-    title: "Mobile",
-  },
-  {
-    to: "/lifestyle",
-    title: "Lifestyle",
-  },
-  {
-    to: "/services",
-    title: "Services",
-  },
-  {
-    to: "/community",
-    title: "Community",
-  },
-  {
-    to: "/support",
-    title: "Support",
-  },
-  {
-    to: "Store",
-    title: "Store",
-  },
-  {
-    to: "/searchbar",
-    title: "Search",
-  },
-  {
-    to: "/cartpage",
-    title: "Cart",
-  },
-];
+import { MainNavbarPages } from "../DataBase/AllRoutesData";
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
 function MainNavbarResponsive() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -116,7 +73,7 @@ function MainNavbarResponsive() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {MainNavbarPages.map((page) => (
                 <MenuItem key={page.to} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
@@ -148,7 +105,7 @@ function MainNavbarResponsive() {
               display: { xs: "none", md: "flex" },
             }}
           >
-            {pages.map((page) => (
+            {MainNavbarPages.map((page) => (
               <NavLink
                 key={page.title}
                 style={{ textDecoration: "none" }}

@@ -11,33 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 import { NavLink } from "react-router-dom";
-const pages = [
-  {
-    to: "/support/pc",
-    title: "Personal Computers",
-  },
-  {
-    to: "/support/console",
-    title: "Console",
-  },
-  {
-    to: "/support/mobile",
-    title: "Mobile",
-  },
-  {
-    to: "/support/lifestyle",
-    title: "LifeStyle",
-  },
-  {
-    to: "/support/services",
-    title: "Services",
-  },
-  {
-    to: "/support/replacements",
-    title: "Replacements",
-  },
-];
-
+import { SupportNavbarPages } from "../DataBase/AllRoutesData";
 function SupportNavbarData() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const handleOpenNavMenu = (event) => {
@@ -79,7 +53,7 @@ function SupportNavbarData() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {SupportNavbarPages.map((page) => (
                 <MenuItem key={page.to} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
@@ -112,7 +86,7 @@ function SupportNavbarData() {
               display: { xs: "none", md: "flex" },
             }}
           >
-            {pages.map((page) => (
+            {SupportNavbarPages.map((page) => (
               <NavLink
                 key={page.title}
                 style={{ textDecoration: "none" }}

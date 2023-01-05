@@ -11,49 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 import { NavLink } from "react-router-dom";
-
-const pages = [
-  {
-    to: "/mobile/handhelds",
-    title: "Handhelds",
-  },
-  {
-    to: "/mobile/controllers",
-    title: "Controllers",
-  },
-  {
-    to: "/mobile/headphones",
-    title: "Headphones",
-  },
-  {
-    to: "/mobile/earbuds",
-    title: "Earbuds",
-  },
-  {
-    to: "/mobile/dac",
-    title: "DAC",
-  },
-  {
-    to: "/mobile/smartglasses",
-    title: "Smart Glasses",
-  },
-  {
-    to: "/mobile/cases",
-    title: "Cases",
-  },
-  {
-    to: "/mobile/maccessories",
-    title: "Accessories",
-  },
-  {
-    to: "/mobile/customs",
-    title: "Customs",
-  },
-  {
-    to: "/mobile/cortexgames",
-    title: "Cortex Games",
-  },
-];
+import { MobileNavbarPages } from "../DataBase/AllRoutesData";
 
 function MobileNavbarData() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -96,7 +54,7 @@ function MobileNavbarData() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {MobileNavbarPages.map((page) => (
                 <MenuItem key={page.to} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
@@ -129,7 +87,7 @@ function MobileNavbarData() {
               display: { xs: "none", md: "flex" },
             }}
           >
-            {pages.map((page) => (
+            {MobileNavbarPages.map((page) => (
               <NavLink
                 key={page.title}
                 style={{ textDecoration: "none" }}

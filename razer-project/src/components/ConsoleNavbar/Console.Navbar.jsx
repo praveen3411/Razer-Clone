@@ -1,5 +1,4 @@
 import * as React from "react";
-// import Navdata from "../.././styles/Navbar.module.css";
 import Logos from "../.././assets/Logo.svg";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -11,21 +10,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 import { NavLink } from "react-router-dom";
-
-const pages = [
-  {
-    to: "/console/xbox",
-    title: "Xbox",
-  },
-  {
-    to: "/console/palystation",
-    title: "PlayStation",
-  },
-  {
-    to: "/console/accessories",
-    title: "Accessories",
-  },
-];
+import { ConsoleNavbarPages } from "../DataBase/AllRoutesData";
 
 function ConsoleNavbarData() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -68,7 +53,7 @@ function ConsoleNavbarData() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {ConsoleNavbarPages.map((page) => (
                 <MenuItem key={page.to} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
@@ -101,7 +86,7 @@ function ConsoleNavbarData() {
               display: { xs: "none", md: "flex" },
             }}
           >
-            {pages.map((page) => (
+            {ConsoleNavbarPages.map((page) => (
               <NavLink
                 key={page.title}
                 style={{ textDecoration: "none" }}
