@@ -8,7 +8,7 @@ export default function ConsolePage() {
       <ShowingOffer
         passoffer={"All orders over US$79 will enjoy free standard shipping to the United States."}
       />
-      <h1 style={{ color: "white" }}>ConsolePaes</h1>
+      <h1 style={{ color: "white" }}>Console Page</h1>
     </Box>
   );
 }
