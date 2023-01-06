@@ -11,7 +11,7 @@ export default function CommunityPage() {
           "All orders over US$79 will enjoy free standard shipping to the United States."
         }
       />
-      <h1 style={{ color: "white" }}>Community</h1>
+      <h1 style={{ color: "white" }}>CommunityPage</h1>
     </Box>
   );
 }
