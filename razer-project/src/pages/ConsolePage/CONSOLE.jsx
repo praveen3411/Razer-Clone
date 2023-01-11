@@ -6,7 +6,9 @@ export default function ConsolePage() {
     <Box>
       <ConsoleNavbarData />
       <ShowingOffer
-        passoffer={"All orders over US$79 will enjoy free standard shipping to the United States."}
+        passoffer={
+          "All orders over US$79 will enjoy free standard shipping to the United States"
+        }
       />
       <h1 style={{ color: "white" }}>Console Page</h1>
     </Box>
