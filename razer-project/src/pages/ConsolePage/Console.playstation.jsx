@@ -5,7 +5,7 @@ export default function ConsolePlayStation() {
   return (
     <Box>
       <ConsoleNavbarData />
-      <h1 style={{ color: "white" }}>ConsolePlayStation</h1>
+      <h1 style={{ color: "white" }}>ConsolePlayStatioo</h1>
     </Box>
   );
 }
